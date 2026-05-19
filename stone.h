@@ -1,3 +1,6 @@
+#ifndef POINT_H
+#define POINT_H
+
 struct Stone {
     int leftside;
     int rightside;
@@ -6,3 +9,5 @@ struct Stone {
 
     char name;
 };
+
+#endif

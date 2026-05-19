@@ -1,3 +1,6 @@
+#ifndef POINT_H
+#define POINT_H
+
 struct Player {
     int points;
     int stone_1;
@@ -6,3 +9,5 @@ struct Player {
     int stone_4;
     int stone_5;
 };
+
+#endif
