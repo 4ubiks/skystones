@@ -3,9 +3,11 @@
 #include "ncurses.h"
 
 // Custom files
+#include "constants.h"
 #include "player.h"
 #include "stone.h"
 #include "skyprint.h"
+#include "skyinit.h"
 
 int main(){
     initscr();
@@ -35,6 +37,7 @@ int main(){
     mvwprintw(stdscr, 2, 2, "Skystones-C");
 
     struct Player p1;
+    p1 = initializePlayer(p1);
 
     printPlayerDeck(p1);
 
