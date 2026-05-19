@@ -1,7 +1,11 @@
+// C libraries
 #include "stdio.h"
-#include "skyprint.h"
-#include "stone.h"
 #include "ncurses.h"
+
+// Custom files
+#include "player.h"
+#include "stone.h"
+#include "skyprint.h"
 
 int main(){
     initscr();
@@ -30,7 +34,9 @@ int main(){
     mvwprintw(stdscr, y, x, "Game board");
     mvwprintw(stdscr, 2, 2, "Skystones-C");
 
-    printPlayerDeck();
+    struct Player p1;
+
+    printPlayerDeck(p1);
 
     while (true){
         int ch = getch();
