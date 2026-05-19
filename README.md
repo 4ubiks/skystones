@@ -4,7 +4,19 @@ An homage to my favorite childhood game, Skylanders: Giants. There is a minigame
 ## Structure
 ```
 main.c
---> skyprint.c
+--> constants.h
+--> skyprint.h
+--> player.h
+--> stone.h
+--> skyinit.h
+
+skyinit.c
+--> skyinit.h
+--> constants.h
+--> player.h
+
+skyprint.c
+--> player.h
 --> skyprint.h
 
 
