@@ -1,6 +1,10 @@
-#include "skyprint.h"
+// c libraries
 #include "stdio.h"
 #include "ncurses.h"
+
+// custom files
+#include "player.h"
+#include "skyprint.h"
 
 
 void printBoard(){
@@ -18,7 +22,7 @@ void printBoard(){
 
 }
 
-void printPlayerDeck(){
+void printPlayerDeck(struct Player player){
     mvwprintw(stdscr, 5, 10, "Player 1's Deck:");
     mvwprintw(stdscr, 6, 10, "[]");
     mvwprintw(stdscr, 6, 13, "[]");
