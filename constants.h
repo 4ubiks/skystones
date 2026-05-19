@@ -1,0 +1,9 @@
+// stone constants
+#define GRENADE_GENERAL 0x1
+#define ARKEYAN_BOMBER 0x2
+#define ROOT_RUNNER 0x3
+#define CRYSTAL_GOLEM 0x4
+#define BLAZE_BREWER 0x5
+#define CONQUERTRON 0x6
+#define DRAGONET 0x7
+#define D_RIVETER 0x8
