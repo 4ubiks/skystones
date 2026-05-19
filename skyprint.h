@@ -1,3 +1,3 @@
 void printBoard();
 
-void printPlayerDeck(struct playerNumber);
+void printPlayerDeck(struct Player);
