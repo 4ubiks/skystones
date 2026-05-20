@@ -8,17 +8,47 @@
 
 
 void printBoard(){
-    mvwprintw(stdscr, 10, 15, "         |          |         \n");
-    mvwprintw(stdscr, 11, 15, "         |          |         \n");
-    mvwprintw(stdscr, 12, 15, "         |          |         \n");
-    mvwprintw(stdscr, 13, 15, "---------|----------|---------\n");
-    mvwprintw(stdscr, 14, 15, "         |          |         \n");
-    mvwprintw(stdscr, 15, 15, "         |          |         \n");
-    mvwprintw(stdscr, 16, 15, "         |          |         \n");
-    mvwprintw(stdscr, 17, 15, "---------|----------|---------\n");
-    mvwprintw(stdscr, 18, 15, "         |          |         \n");
-    mvwprintw(stdscr, 19, 15, "         |          |         \n");
-    mvwprintw(stdscr, 20, 15, "         |          |         \n");
+
+    int gridWidth = COLS - 10;
+    int gridHeight = LINES - 5;
+
+    WINDOW *gridBorder = newwin(gridHeight, gridWidth, 0, 0);
+    box(gridBorder, 0, 0);
+
+
+    // upper  Vborders
+    for (int i=0; i<20; i++){
+        mvwprintw(gridBorder, 5+i, 85, "||");
+        mvwprintw(gridBorder, 5+i, 140, "||");
+    }
+
+    // first Hrow
+    for (int row1=0; row1<140; row1++){
+        mvwprintw(gridBorder, 25, 45+row1, "=");
+    }
+
+    // middle Vborders
+    for (int k=0; k<20; k++){
+        mvwprintw(gridBorder, 26+k, 85, "||");
+        mvwprintw(gridBorder, 26+k, 140, "||");
+    }
+
+    // bottom Vborders
+    for (int j=0; j<20; j++){
+        mvwprintw(gridBorder, 45+j, 85, "||");
+        mvwprintw(gridBorder, 45+j, 140, "||");
+    }
+
+    // second Hrow
+    for (int row1=0; row1<140; row1++){
+        mvwprintw(gridBorder, 45, 45+row1, "=");
+    }
+
+
+    refresh();
+
+    wrefresh(gridBorder);
+
 
 }
 
