@@ -3,6 +3,9 @@ An homage to my favorite childhood game, Skylanders: Giants. There is a minigame
 
 Using `ncurses` to render the graphics
 
+Use the arrow keys to select where you want to play your next stone. 
+Use 'A/D' keys to select your next stone to play. 
+
 ## Structure
 ```
 main.c
