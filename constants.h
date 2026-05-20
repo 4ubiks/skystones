@@ -7,3 +7,9 @@
 #define CONQUERTRON 0x6
 #define DRAGONET 0x7
 #define D_RIVETER 0x8
+
+// ascii text
+#define UPPER_RIGHT_CORNER 0xbb
+#define UPPER_LEFT_CORNER 0xc9
+#define LOWER_RIGHT_CORNER 0xbc
+#define LOWER_LEFT_CORNER 0xbd
