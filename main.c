@@ -39,18 +39,38 @@ int main(){
     struct Player p1;
     p1 = initializePlayer(p1);
 
+    WINDOW *gridSelection = newwin(15, 25, 8, 52);
+    box(gridSelection, 0, 0);
+
+    wattron(gridSelection, A_REVERSE);
+
+    refresh();
+
+    wrefresh(gridSelection);
+
     printPlayerDeck(p1);
+
+    y=8;
+    x=52;
 
     while (true){
         int ch = getch();
         switch(ch) {
-            case KEY_UP:    y--; break;
-            case KEY_DOWN:  y++; break;
-            case KEY_LEFT:  x--; break;
-            case KEY_RIGHT: x++; break;
+            case KEY_UP:    y-=20; break;
+            case KEY_DOWN:  y+=20; break;
+            case KEY_LEFT:  x-=50; break;
+            case KEY_RIGHT: x+=50; break;
         }
 
-        wmove(stdscr, y, x);
+        werase(gridSelection);
+        wrefresh(gridSelection);
+
+        gridSelection = newwin(15, 25, y, x);
+        box(gridSelection, 0, 0);
+        wmove(gridSelection, y, x);
+
+        refresh();
+        wrefresh(gridSelection);
     }
 
     refresh();
