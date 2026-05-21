@@ -62,3 +62,12 @@ void printPlayerDeck(struct Player player){
 
     mvwprintw(stdscr, 8, 15, "Player points: %d", player.points);
 }
+
+void enterPiece(){
+    WINDOW *enterPiece = newwin(15, 25, 0, 0);
+    wborder(enterPiece, '<', '>', 206, 206, '+', '+', '+', '+');
+
+    refresh();
+    wrefresh(enterPiece);
+
+}
