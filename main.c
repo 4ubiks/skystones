@@ -60,6 +60,8 @@ int main(){
             case KEY_DOWN:  y+=20; break;
             case KEY_LEFT:  x-=50; break;
             case KEY_RIGHT: x+=50; break;
+
+            case KEY_ENTER: enterPiece(); break;
         }
 
         werase(gridSelection);
