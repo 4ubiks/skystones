@@ -44,7 +44,6 @@ void printBoard(){
         mvwprintw(gridBorder, 45, 45+row1, "=");
     }
 
-
     refresh();
 
     wrefresh(gridBorder);
