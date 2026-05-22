@@ -4,10 +4,11 @@
 
 // custom files
 #include "player.h"
+#include "board.h"
 #include "skyprint.h"
 
 
-void printBoard(){
+void printBlankBoard(){
 
     int gridWidth = COLS - 10;
     int gridHeight = LINES - 5;
@@ -51,6 +52,33 @@ void printBoard(){
 
 }
 
+// prints all entries where a piece exists
+void printFullBoard(struct Board board){
+    int tmp_x = 52;
+    int tmp_y = 8;
+
+    int piece_count = 0;
+    for (int piece_row=0; piece_row<3; piece_row++){
+        for (int piece_col=0; piece_col<3; piece_col++){
+            if (board.boardPieceIsPresent[piece_count] == '1'){
+                WINDOW *tmpPieceSelection = newwin(15, 25, tmp_y, tmp_x);
+                wborder(tmpPieceSelection, '<', '>', 206, 206, '+', '+', '+', '+');
+
+                refresh();
+                wrefresh(tmpPieceSelection);
+
+                delwin(tmpPieceSelection);
+            }
+            piece_count++;
+            tmp_x+=50;
+        }
+        tmp_x = 52;
+        tmp_y+=20;
+        piece_count++;  
+    }
+
+}
+
 void printPieceCoordinates(int grid_x, int grid_y){
     mvwprintw(stdscr, 10, 10, "(%d, ", grid_x);
     mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
@@ -68,6 +96,10 @@ void printPlayerDeck(struct Player player){
 }
 
 void enterPiece(int x, int y){
+
+    // signify that piece X, Y has been taken. 
+
+
     WINDOW *enterPiece = newwin(15, 25, x, y);
     box(enterPiece, 0, 0);
     wborder(enterPiece, '<', '>', 206, 206, '+', '+', '+', '+');
