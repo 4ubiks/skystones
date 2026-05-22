@@ -1,5 +1,2 @@
 // Functions throughout the game
-char setPiece(){
-    //board.piece
-    int x = 0;
-}
+char setPiece(struct Board*, int pieceNumber);
