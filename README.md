@@ -6,6 +6,9 @@ Using `ncurses` to render the graphics
 Use the arrow keys to select where you want to play your next stone. 
 Use 'A/D' keys to select your next stone to play. 
 
+## Next TODO:
+why piece selection ain't no workin' bruh
+
 ## Structure
 ```
 main.c
