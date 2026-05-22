@@ -1,5 +1,5 @@
 run:
-	gcc -o skystones main.c skyprint.c skyinit.c -lncurses
+	gcc -o skystones main.c skyprint.c skyinit.c skyfuncs.c -lncurses
 	./skystones
 
 clean:
