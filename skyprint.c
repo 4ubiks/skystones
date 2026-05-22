@@ -52,6 +52,11 @@ void printBoard(){
 
 }
 
+void printPieceCoordinates(int grid_x, int grid_y){
+    mvwprintw(stdscr, 10, 10, "(%d, ", grid_x);
+    mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
+}
+
 void printPlayerDeck(struct Player player){
     mvwprintw(stdscr, 5, 10, "Player 1's Deck:");
     mvwprintw(stdscr, 6, 10, "[]");
@@ -63,11 +68,12 @@ void printPlayerDeck(struct Player player){
     mvwprintw(stdscr, 8, 15, "Player points: %d", player.points);
 }
 
-void enterPiece(){
-    WINDOW *enterPiece = newwin(15, 25, 0, 0);
+void enterPiece(int x, int y){
+    WINDOW *enterPiece = newwin(15, 25, x, y);
+    box(enterPiece, 0, 0);
     wborder(enterPiece, '<', '>', 206, 206, '+', '+', '+', '+');
+    mvwprintw(enterPiece, 35, 35, "CTRL SHIFT ALT PRESS ENTER");
 
     refresh();
     wrefresh(enterPiece);
-
 }
