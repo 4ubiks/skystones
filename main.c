@@ -5,9 +5,11 @@
 // Custom files
 #include "constants.h"
 #include "player.h"
+#include "board.h"
 #include "stone.h"
 #include "skyprint.h"
 #include "skyinit.h"
+#include "skyfuncs.h"
 
 int main(){
     initscr();
@@ -16,7 +18,7 @@ int main(){
 
     keypad(stdscr, TRUE);
     curs_set(1); // cursor appearance: 0 invisible, 1 normal, 2strong
-    printBoard();
+    printBlankBoard();
 
     if (has_colors() == FALSE){
         endwin();
@@ -40,6 +42,9 @@ int main(){
     struct Player p1;
     p1 = initializePlayer(p1);
 
+    struct Board boardPieces;
+    boardPieces = initializeBoard(boardPieces);
+
     WINDOW *gridSelection = newwin(15, 25, 8, 52);
     box(gridSelection, 0, 0);
 
@@ -56,10 +61,11 @@ int main(){
 
     grid_x = 0;
     grid_y = 0;
+    int piece_number = 0;
 
     while (true){
         int pressedKey = getch();
-
+        piece_number = grid_y*3 + grid_x;
         
         switch(pressedKey) {
             case KEY_UP:    y-=20; grid_y--; break;
@@ -67,7 +73,11 @@ int main(){
             case KEY_LEFT:  x-=50; grid_x--; break;
             case KEY_RIGHT: x+=50; grid_x++; break;
 
-            case 10: enterPiece(x, y); break;
+            case 10: 
+                //enterPiece(x, y); 
+                setPiece(&boardPieces, piece_number);
+                printFullBoard(boardPieces);
+                break;
         }
 
         if (grid_y == 3){
