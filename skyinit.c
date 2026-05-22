@@ -1,7 +1,7 @@
 #include "constants.h"
-#include "skyinit.h"
 #include "player.h"
 #include "board.h"
+#include "skyinit.h"
 
 struct Player initializePlayer(struct Player player){
     player.stone_1 = ARKEYAN_BOMBER;
@@ -19,15 +19,9 @@ struct Board initializeBoard(struct Board board){
 
     board.piecesPlayed = 0;
 
-    board.point00 = '0';
-    board.point01 = '0';
-    board.point02 = '0';
-    board.point10 = '0';
-    board.point11 = '0';
-    board.point12 = '0';
-    board.point20 = '0';
-    board.point21 = '0';
-    board.point22 = '0';
+    for (int i=0; i<9; i++){
+        board.boardPieceIsPresent[i] = '0';
+    }
 
     return board;
 }
