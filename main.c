@@ -30,6 +30,7 @@ int main(){
     attron(COLOR_PAIR(1));
 
     int y, x;
+    int grid_x, grid_y = 0;
     getmaxyx(stdscr, y, x);
     y = y*0.5;
     x = (x*0.5) -6;
@@ -53,16 +54,41 @@ int main(){
     y=8;
     x=52;
 
-    while (true){
-        int ch = getch();
-        switch(ch) {
-            case KEY_UP:    y-=20; break;
-            case KEY_DOWN:  y+=20; break;
-            case KEY_LEFT:  x-=50; break;
-            case KEY_RIGHT: x+=50; break;
+    grid_x = 0;
+    grid_y = 0;
 
-            case KEY_ENTER: enterPiece(); break;
+    while (true){
+        int pressedKey = getch();
+
+        
+        switch(pressedKey) {
+            case KEY_UP:    y-=20; grid_y--; break;
+            case KEY_DOWN:  y+=20; grid_y++; break;
+            case KEY_LEFT:  x-=50; grid_x--; break;
+            case KEY_RIGHT: x+=50; grid_x++; break;
+
+            case 10: enterPiece(x, y); break;
         }
+
+        if (grid_y == 3){
+            grid_y = 2;
+            y-=20;
+        }
+        else if (grid_y == -1){
+            grid_y = 0;
+            y+=20;
+        }
+
+        if (grid_x == 3){
+            grid_x = 2;
+            x-=50;
+        }
+        else if (grid_x == -1){
+            grid_x = 0;
+            x+=50;
+        }
+
+        printPieceCoordinates(grid_x, grid_y);
 
         werase(gridSelection);
         wrefresh(gridSelection);
@@ -71,7 +97,7 @@ int main(){
         box(gridSelection, 0, 0);
         wmove(gridSelection, y, x);
 
-        refresh();
+        //refresh();
         wrefresh(gridSelection);
     }
 
