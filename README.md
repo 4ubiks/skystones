@@ -14,6 +14,7 @@ main.c
 --> player.h
 --> stone.h
 --> skyinit.h
+--> skyfuncs.h
 
 skyinit.c
 --> skyinit.h
@@ -23,6 +24,9 @@ skyinit.c
 skyprint.c
 --> player.h
 --> skyprint.h
+
+skyfuncs.c
+--> board.h
 
 
 ```
