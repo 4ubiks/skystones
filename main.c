@@ -75,6 +75,9 @@ int main(){
 
             case 10: 
                 //enterPiece(x, y); 
+                mvwprintw(stdscr, 13, 8, "x: %d", grid_x);
+                mvwprintw(stdscr, 14, 8, "y: %d", grid_y);
+                mvwprintw(stdscr, 15, 8, "number: %d", piece_number);
                 setPiece(&boardPieces, piece_number);
                 printFullBoard(boardPieces);
                 break;
