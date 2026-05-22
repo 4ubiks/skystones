@@ -45,7 +45,7 @@ int main(){
     struct Board boardPieces;
     boardPieces = initializeBoard(boardPieces);
 
-    WINDOW *gridSelection = newwin(15, 25, 8, 52);
+    WINDOW *gridSelection = newwin(13, 21, 9, 54);
     box(gridSelection, 0, 0);
 
     wattron(gridSelection, A_REVERSE);
@@ -65,7 +65,7 @@ int main(){
 
     while (true){
         int pressedKey = getch();
-        piece_number = grid_y*3 + grid_x;
+        piece_number = grid_x*3 + grid_y;
         
         switch(pressedKey) {
             case KEY_UP:    y-=20; grid_y--; break;
@@ -103,7 +103,7 @@ int main(){
         werase(gridSelection);
         wrefresh(gridSelection);
 
-        gridSelection = newwin(15, 25, y, x);
+        gridSelection = newwin(13, 21, y+1, x+2);
         box(gridSelection, 0, 0);
         wmove(gridSelection, y, x);
 
