@@ -28,6 +28,7 @@ skyprint.c
 --> player.h
 --> board.h
 --> skyprint.h
+--> skyfuncs.h
 
 skyfuncs.c
 --> board.h
