@@ -6,6 +6,7 @@
 #include "player.h"
 #include "board.h"
 #include "skyprint.h"
+#include "skyfuncs.h"
 
 
 void printBlankBoard(){
@@ -53,17 +54,20 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printFullBoard(struct Board board){
+void printFullBoard(struct Board board, int turn){
     int tmp_x = 52;
     int tmp_y = 8;
+
+    init_pair(2, COLOR_RED, COLOR_BLACK);
+    init_pair(3, COLOR_BLUE, COLOR_BLACK);
 
     int piece_count = 0;
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
             if (board.boardPieceIsPresent[piece_count] == '1'){
                 WINDOW *tmpPieceSelection = newwin(15, 25, tmp_y, tmp_x);
+                selectPlayerColor(turn, tmpPieceSelection);
                 wborder(tmpPieceSelection, '<', '>', 206, 206, '+', '+', '+', '+');
-
                 refresh();
                 wrefresh(tmpPieceSelection);
 
