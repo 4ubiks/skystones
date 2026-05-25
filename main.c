@@ -40,7 +40,10 @@ int main(){
     mvwprintw(stdscr, 2, 2, "Skystones-C");
 
     struct Player p1;
-    p1 = initializePlayer(p1);
+    p1 = initializePlayer(p1, PLAYER_ONE);
+
+    struct Player p2;
+    p2 = initializePlayer(p2, PLAYER_TWO);
 
     struct Board boardPieces;
     boardPieces = initializeBoard(boardPieces);
@@ -63,8 +66,13 @@ int main(){
     grid_y = 0;
     int piece_number = 0;
 
+    // when `turn` is positive, player 1's turn. otherwise, p2's turn.
+    int turn = 1;
+
     while (true){
         int pressedKey = getch();
+
+  
         
         switch(pressedKey) {
             case KEY_UP:    y-=20; grid_y--; break;
@@ -74,12 +82,10 @@ int main(){
 
             case 10: 
                 //enterPiece(x, y); 
-                mvwprintw(stdscr, 13, 8, "x: %d", grid_x);
-                mvwprintw(stdscr, 14, 8, "y: %d", grid_y);
-                piece_number = grid_y*3 + grid_x;
-                mvwprintw(stdscr, 15, 8, "the %dth square", piece_number);
+                piece_number = calculateCellNumber(grid_x, grid_y);
                 setPiece(&boardPieces, piece_number);
                 printFullBoard(boardPieces);
+                turn = toggleTurn(turn);
                 break;
         }
 
@@ -102,6 +108,13 @@ int main(){
         }
 
         //printPieceCoordinates(grid_x, grid_y);
+
+        if (gameIsOver(&boardPieces)){
+            timeout(-1);
+            erase();
+            mvwprintw(stdscr, 28, 102, "game over");
+        }
+
 
         werase(gridSelection);
         wrefresh(gridSelection);
