@@ -4,18 +4,17 @@
 // custom includes
 #include "board.h"
 #include "skyfuncs.h"
+#include "skyinit.h"
 
 char setPiece(struct Board *board, int pieceNumber){
 
-    if (board->boardPieceIsPresent[pieceNumber] != '1'){
+    if (pieceStatus(*board, pieceNumber) != '1'){
         board->boardPieceIsPresent[pieceNumber] = '1';
         board->piecesPlayed++;       
     }
     else {
         mvwprintw(stdscr, 40, 15, "Piece already exists here.");
     }
-    //board.piece
-   
 
     return '1';
 }
