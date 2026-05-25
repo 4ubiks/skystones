@@ -65,7 +65,6 @@ int main(){
 
     while (true){
         int pressedKey = getch();
-        piece_number = grid_x*3 + grid_y;
         
         switch(pressedKey) {
             case KEY_UP:    y-=20; grid_y--; break;
@@ -77,7 +76,8 @@ int main(){
                 //enterPiece(x, y); 
                 mvwprintw(stdscr, 13, 8, "x: %d", grid_x);
                 mvwprintw(stdscr, 14, 8, "y: %d", grid_y);
-                mvwprintw(stdscr, 15, 8, "number: %d", piece_number);
+                piece_number = grid_y*3 + grid_x;
+                mvwprintw(stdscr, 15, 8, "the %dth square", piece_number);
                 setPiece(&boardPieces, piece_number);
                 printFullBoard(boardPieces);
                 break;
@@ -101,7 +101,7 @@ int main(){
             x+=50;
         }
 
-        printPieceCoordinates(grid_x, grid_y);
+        //printPieceCoordinates(grid_x, grid_y);
 
         werase(gridSelection);
         wrefresh(gridSelection);
