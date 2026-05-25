@@ -74,7 +74,6 @@ void printFullBoard(struct Board board){
         }
         tmp_x = 52;
         tmp_y+=20;
-        piece_count++;  
     }
 
 }
@@ -98,8 +97,6 @@ void printPlayerDeck(struct Player player){
 void enterPiece(int x, int y){
 
     // signify that piece X, Y has been taken. 
-
-
     WINDOW *enterPiece = newwin(15, 25, x, y);
     box(enterPiece, 0, 0);
     wborder(enterPiece, '<', '>', 206, 206, '+', '+', '+', '+');
