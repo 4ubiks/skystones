@@ -8,6 +8,8 @@ struct Player {
     int stone_3;
     int stone_4;
     int stone_5;
+
+    char team;
 };
 
 #endif
