@@ -8,6 +8,10 @@
 #define DRAGONET 0x7
 #define D_RIVETER 0x8
 
+// user constants
+#define PLAYER_ONE 0x1
+#define PLAYER_TWO 0x2
+
 // ascii graphics characters
 #define UPPER_RIGHT_CORNER 0xbb
 #define UPPER_LEFT_CORNER 0xc9
