@@ -71,8 +71,6 @@ int main(){
 
     while (true){
         int pressedKey = getch();
-
-  
         
         switch(pressedKey) {
             case KEY_UP:    y-=20; grid_y--; break;
@@ -107,14 +105,11 @@ int main(){
             x+=50;
         }
 
-        //printPieceCoordinates(grid_x, grid_y);
-
         if (gameIsOver(&boardPieces)){
             timeout(-1);
             erase();
             mvwprintw(stdscr, 28, 102, "game over");
         }
-
 
         werase(gridSelection);
         wrefresh(gridSelection);
