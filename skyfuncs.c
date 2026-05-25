@@ -6,9 +6,16 @@
 #include "skyfuncs.h"
 
 char setPiece(struct Board *board, int pieceNumber){
+
+    if (board->boardPieceIsPresent[pieceNumber] != '1'){
+        board->boardPieceIsPresent[pieceNumber] = '1';
+        board->piecesPlayed++;       
+    }
+    else {
+        mvwprintw(stdscr, 40, 15, "Piece already exists here.");
+    }
     //board.piece
-   board->boardPieceIsPresent[pieceNumber] = '1';
-   board->piecesPlayed++;
+   
 
     return '1';
 }
