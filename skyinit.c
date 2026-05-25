@@ -27,3 +27,7 @@ struct Board initializeBoard(struct Board board){
 
     return board;
 }
+
+int pieceStatus(struct Board board, int pieceNumber){
+    return board.boardPieceIsPresent[pieceNumber];
+}
