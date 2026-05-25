@@ -36,12 +36,22 @@ int toggleTurn(int turn){
     turn *= -1;
 
     if (turn > 0){
-        mvwprintw(stdscr, 50, 15, "player 1's turn");
+        mvwprintw(stdscr, 50, 15, "Player 1");
     }
     else{
-        mvwprintw(stdscr, 50, 15, "player 2's turn");
+        mvwprintw(stdscr, 50, 15, "Player 2");
     }
-    mvwprintw(stdscr, 52, 16, "%d", turn);
 
     return turn;
+}
+
+void selectPlayerColor(int turn, WINDOW *stoneWindow){
+    if (turn > 0){
+        init_pair(2, COLOR_RED, COLOR_BLACK);
+        wbkgd(stoneWindow, 2);
+    }
+    else{
+        init_pair(3, COLOR_BLUE, COLOR_BLACK);
+        wbkgd(stoneWindow, 3);  
+    }
 }
