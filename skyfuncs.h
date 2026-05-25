@@ -6,3 +6,5 @@ int calculateCellNumber(int x, int y);
 char gameIsOver(struct Board*);
 
 int toggleTurn(int turn);
+
+void selectPlayerColor(int turn, WINDOW *stoneWindow);
