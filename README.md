@@ -7,12 +7,14 @@ Use the arrow keys to select where you want to play your next stone.
 Use 'A/D' keys to select your next stone to play. 
 
 ## Structure
+This is the include breakdown, just to help avoid include loops
 ```
 main.c
 --> constants.h
---> skyprint.h
 --> player.h
+--> board.h
 --> stone.h
+--> skyprint.h  
 --> skyinit.h
 --> skyfuncs.h
 
@@ -20,13 +22,17 @@ skyinit.c
 --> skyinit.h
 --> constants.h
 --> player.h
+--> board.h
 
 skyprint.c
 --> player.h
+--> board.h
 --> skyprint.h
 
 skyfuncs.c
 --> board.h
+--> skyfuncs.h
+--> skyinit.h
 
 
 ```
