@@ -6,10 +6,15 @@
 #include "skyfuncs.h"
 #include "skyinit.h"
 
-char setPiece(struct Board *board, int pieceNumber){
+char setPiece(struct Board *board, int pieceNumber, int turn){
 
     if (pieceStatus(*board, pieceNumber) != '1'){
         board->boardPieceIsPresent[pieceNumber] = '1';
+        if (turn > 0){
+            board->boardPiecePlayer[pieceNumber] = '1';
+        }
+        else
+            board->boardPiecePlayer[pieceNumber] = '2';
         board->piecesPlayed++;       
     }
     else {
@@ -45,13 +50,20 @@ int toggleTurn(int turn){
     return turn;
 }
 
-void selectPlayerColor(int turn, WINDOW *stoneWindow){
+void selectPlayerColor(int turn, int tmp_x, int tmp_y, WINDOW* newPieceWindow, struct Board board){
     if (turn > 0){
         init_pair(2, COLOR_RED, COLOR_BLACK);
-        wbkgd(stoneWindow, 2);
+        wbkgd(newPieceWindow, COLOR_PAIR(2));
     }
     else{
         init_pair(3, COLOR_BLUE, COLOR_BLACK);
-        wbkgd(stoneWindow, 3);  
+        wbkgd(newPieceWindow, COLOR_PAIR(3));
     }
+
+
+    mvwin(newPieceWindow, tmp_y, tmp_x);
+    wborder(newPieceWindow, '<', '>', 206, 206, '+', '+', '+', '+');
+
+    refresh();
+    wrefresh(newPieceWindow);
 }
