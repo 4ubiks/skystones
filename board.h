@@ -7,6 +7,7 @@ struct Board {
 
     // These points are the board themselves, whether or not a piece exists at that point. 
     char boardPieceIsPresent[9];
+    char boardPiecePlayer[9];
 };
 
 #endif
