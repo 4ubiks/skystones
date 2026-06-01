@@ -81,7 +81,7 @@ int main(){
             case 10: 
                 //enterPiece(x, y); 
                 piece_number = calculateCellNumber(grid_x, grid_y);
-                setPiece(&boardPieces, piece_number);
+                setPiece(&boardPieces, piece_number, turn);
                 printFullBoard(boardPieces, turn);
                 turn = toggleTurn(turn);
                 break;
