@@ -65,13 +65,8 @@ void printFullBoard(struct Board board, int turn){
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
             if (board.boardPieceIsPresent[piece_count] == '1'){
-                WINDOW *tmpPieceSelection = newwin(15, 25, tmp_y, tmp_x);
-                selectPlayerColor(turn, tmpPieceSelection);
-                wborder(tmpPieceSelection, '<', '>', 206, 206, '+', '+', '+', '+');
-                refresh();
-                wrefresh(tmpPieceSelection);
-
-                delwin(tmpPieceSelection);
+                WINDOW* newPieceWindow = newwin(15, 25, tmp_y, tmp_x);
+                selectPlayerColor(turn, tmp_x, tmp_y, newPieceWindow, board);
             }
             piece_count++;
             tmp_x+=50;
@@ -79,7 +74,6 @@ void printFullBoard(struct Board board, int turn){
         tmp_x = 52;
         tmp_y+=20;
     }
-
 }
 
 void printPieceCoordinates(int grid_x, int grid_y){
