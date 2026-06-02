@@ -60,7 +60,6 @@ void selectPlayerColor(int turn, int tmp_x, int tmp_y, WINDOW* newPieceWindow, s
         wbkgd(newPieceWindow, COLOR_PAIR(3));
     }
 
-
     mvwin(newPieceWindow, tmp_y, tmp_x);
     wborder(newPieceWindow, '<', '>', 206, 206, '+', '+', '+', '+');
 
