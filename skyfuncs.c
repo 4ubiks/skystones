@@ -50,19 +50,20 @@ int toggleTurn(int turn){
     return turn;
 }
 
-void selectPlayerColor(int turn, int tmp_x, int tmp_y, WINDOW* newPieceWindow, struct Board board){
-    if (turn > 0){
-        init_pair(2, COLOR_RED, COLOR_BLACK);
-        wbkgd(newPieceWindow, COLOR_PAIR(2));
+void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, WINDOW* newPieceWindow2, struct Board board, int piece_count){
+    if (board.boardPiecePlayer[piece_count] == '1'){
+        wbkgd(newPieceWindow1, COLOR_PAIR(2));
+        wborder(newPieceWindow1, '<', '>', 206, 206, '+', '+', '+', '+');
     }
     else{
-        init_pair(3, COLOR_BLUE, COLOR_BLACK);
-        wbkgd(newPieceWindow, COLOR_PAIR(3));
+        wbkgd(newPieceWindow2, COLOR_PAIR(3));
+        wborder(newPieceWindow2, '<', '>', 206, 206, '+', '+', '+', '+');
     }
-
-    mvwin(newPieceWindow, tmp_y, tmp_x);
-    wborder(newPieceWindow, '<', '>', 206, 206, '+', '+', '+', '+');
-
     refresh();
-    wrefresh(newPieceWindow);
+    if (board.boardPiecePlayer[piece_count] == '1'){
+        wrefresh(newPieceWindow1);
+    }
+    else{
+        wrefresh(newPieceWindow2);
+    }
 }
