@@ -65,28 +65,11 @@ void printFullBoard(struct Board board, int turn){
     int piece_count = 0;
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
+            WINDOW* newPieceWindow1 = newwin(15, 25, tmp_y, tmp_x);
+            WINDOW* newPieceWindow2 = newwin(15, 25, tmp_y, tmp_x);
+
             if (board.boardPieceIsPresent[piece_count] == '1'){
-
-                WINDOW* newPieceWindow1 = newwin(15, 25, tmp_y, tmp_x);
-                WINDOW* newPieceWindow2 = newwin(15, 25, tmp_y, tmp_x);
-                if (board.boardPiecePlayer[piece_count] == '1'){
-                    wbkgd(newPieceWindow1, COLOR_PAIR(2));
-                    wborder(newPieceWindow1, '<', '>', 206, 206, '+', '+', '+', '+');
-                }
-                else{
-                    wbkgd(newPieceWindow2, COLOR_PAIR(3));
-                    wborder(newPieceWindow2, '<', '>', 206, 206, '+', '+', '+', '+');
-                }
-
-                refresh();
-
-                if (board.boardPiecePlayer[piece_count] == '1'){
-                    wrefresh(newPieceWindow1);
-                }
-                else{
-                    wrefresh(newPieceWindow2);
-                }
-                //selectPlayerColor(turn, tmp_x, tmp_y, newPieceWindow1, board);
+                selectPlayerColor(tmp_x, tmp_y, newPieceWindow1, newPieceWindow2, board, piece_count);
             }
             piece_count++;
             tmp_x+=50;
