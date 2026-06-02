@@ -85,14 +85,23 @@ void printPieceCoordinates(int grid_x, int grid_y){
 }
 
 void printPlayerDeck(struct Player player){
-    mvwprintw(stdscr, 5, 10, "Player 1's Deck:");
-    mvwprintw(stdscr, 6, 10, "[]");
-    mvwprintw(stdscr, 6, 13, "[]");
-    mvwprintw(stdscr, 6, 16, "[]");
-    mvwprintw(stdscr, 6, 19, "[]");
-    mvwprintw(stdscr, 6, 22, "[]");
 
-    mvwprintw(stdscr, 8, 15, "Player points: %d", player.points);
+    WINDOW* playerDeckBorder = newwin(45, 20, 8, 10);
+    wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
+    for (int deckWall=0; deckWall < 5; deckWall+=8){
+        mvwprintw(printPlayerDeck, deckWall, 10, "----------");
+    }
+
+    mvwprintw(stdscr, 8, 10, "Player 1's Deck:");
+    mvwprintw(stdscr, 9, 10, "[]");
+    mvwprintw(stdscr, 9, 13, "[]");
+    mvwprintw(stdscr, 9, 16, "[]");
+    mvwprintw(stdscr, 9, 19, "[]");
+    mvwprintw(stdscr, 9, 22, "[]");
+
+    mvwprintw(stdscr, 5, 10, "Player points: %d", player.points);
+    refresh();
+    wrefresh(playerDeckBorder);
 }
 
 void enterPiece(int x, int y){
@@ -101,7 +110,6 @@ void enterPiece(int x, int y){
     WINDOW *enterPiece = newwin(15, 25, x, y);
     box(enterPiece, 0, 0);
     wborder(enterPiece, '<', '>', 206, 206, '+', '+', '+', '+');
-    mvwprintw(enterPiece, 35, 35, "CTRL SHIFT ALT PRESS ENTER");
 
     refresh();
     wrefresh(enterPiece);
