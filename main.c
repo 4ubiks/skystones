@@ -79,7 +79,6 @@ int main(){
             case KEY_RIGHT: x+=50; grid_x++; break;
 
             case 10: 
-                //enterPiece(x, y); 
                 piece_number = calculateCellNumber(grid_x, grid_y);
                 setPiece(&boardPieces, piece_number, turn);
                 printFullBoard(boardPieces, turn);
@@ -117,8 +116,7 @@ int main(){
         gridSelection = newwin(13, 21, y+1, x+2);
         box(gridSelection, 0, 0);
         wmove(gridSelection, y, x);
-
-        //refresh();
+        
         wrefresh(gridSelection);
     }
 
