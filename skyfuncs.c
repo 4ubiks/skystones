@@ -3,6 +3,7 @@
 
 // custom includes
 #include "board.h"
+#include "player.h"
 #include "skyfuncs.h"
 #include "skyinit.h"
 
@@ -66,4 +67,15 @@ void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, WINDOW* ne
     else{
         wrefresh(newPieceWindow2);
     }
+}
+
+int playerScore(struct Board board){
+    int tmpScore=0;
+    for (int piece=0; piece<9; piece++){
+        if (board.boardPiecePlayer[piece] == '1'){
+            tmpScore++;
+        }
+    }
+
+    return tmpScore;
 }
