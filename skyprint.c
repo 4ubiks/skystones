@@ -86,20 +86,19 @@ void printPieceCoordinates(int grid_x, int grid_y){
 
 void printPlayerDeck(struct Player player){
 
-    WINDOW* playerDeckBorder = newwin(45, 20, 8, 10);
+    WINDOW* playerDeckBorder = newwin(56, 20, 8, 10);
     wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
-    for (int deckWall=0; deckWall < 5; deckWall+=8){
-        mvwprintw(printPlayerDeck, deckWall, 10, "----------");
+    for (int deckWall=0; deckWall < 55; deckWall+=11){
+        mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
     }
 
-    mvwprintw(stdscr, 8, 10, "Player 1's Deck:");
-    mvwprintw(stdscr, 9, 10, "[]");
-    mvwprintw(stdscr, 9, 13, "[]");
-    mvwprintw(stdscr, 9, 16, "[]");
-    mvwprintw(stdscr, 9, 19, "[]");
-    mvwprintw(stdscr, 9, 22, "[]");
+    mvwprintw(playerDeckBorder, 0, 0, "Player 1's Deck:");
+    mvwprintw(playerDeckBorder, 10, 4, "[]");
+    mvwprintw(playerDeckBorder, 20, 4, "[]");
+    mvwprintw(playerDeckBorder, 30, 4, "[]");
+    mvwprintw(playerDeckBorder, 40, 4, "[]");
+    mvwprintw(playerDeckBorder, 50, 4, "[]");
 
-    mvwprintw(stdscr, 5, 10, "Player points: %d", player.points);
     refresh();
     wrefresh(playerDeckBorder);
 }
