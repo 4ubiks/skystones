@@ -8,3 +8,5 @@ char gameIsOver(struct Board*);
 int toggleTurn(int turn);
 
 void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, WINDOW* newPieceWindow, struct Board board, int piece_count);
+
+int playerScore(struct Board board);
