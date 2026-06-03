@@ -79,10 +79,15 @@ int main(){
             case KEY_RIGHT: x+=50; grid_x++; break;
 
             case 10: 
+                if (turn < 0){
+                    p1.points = playerScore(boardPieces);
+                }
+
                 piece_number = calculateCellNumber(grid_x, grid_y);
                 setPiece(&boardPieces, piece_number, turn);
                 printFullBoard(boardPieces, turn);
                 turn = toggleTurn(turn);
+
                 break;
         }
 
@@ -109,6 +114,8 @@ int main(){
             erase();
             mvwprintw(stdscr, 28, 102, "game over");
         }
+
+        mvwprintw(stdscr, 5, 5, "Player 1 points: %d", p1.points);
 
         werase(gridSelection);
         wrefresh(gridSelection);
