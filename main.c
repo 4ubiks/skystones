@@ -36,7 +36,6 @@ int main(){
     getmaxyx(stdscr, y, x);
     y = y*0.5;
     x = (x*0.5) -6;
-    mvwprintw(stdscr, y, x, "Game board");
     mvwprintw(stdscr, 2, 2, "Skystones-C");
 
     struct Player p1;
@@ -48,13 +47,21 @@ int main(){
     struct Board boardPieces;
     boardPieces = initializeBoard(boardPieces);
 
+    // GRID selection initalization
     WINDOW *gridSelection = newwin(13, 21, 9, 54);
     box(gridSelection, 0, 0);
 
     wattron(gridSelection, A_REVERSE);
 
+    WINDOW *deckSelection = newwin(10, 18, 9, 11);
+    box(deckSelection, 0, 0);
+    wrefresh(deckSelection);
+
+    wattron(deckSelection, A_REVERSE);
+
     refresh();
 
+    wrefresh(deckSelection);
     wrefresh(gridSelection);
 
     printPlayerDeck(p1);
@@ -64,6 +71,8 @@ int main(){
 
     grid_x = 0;
     grid_y = 0;
+
+    int deck_y = 9;
     int piece_number = 0;
 
     // when `turn` is positive, player 1's turn. otherwise, p2's turn.
@@ -77,6 +86,22 @@ int main(){
             case KEY_DOWN:  y+=20; grid_y++; break;
             case KEY_LEFT:  x-=50; grid_x--; break;
             case KEY_RIGHT: x+=50; grid_x++; break;
+
+            case 'w':
+                deck_y-=11;
+                if (deck_y < 9){
+                    deck_y = 9;
+                }
+                break;
+            case 's':
+                deck_y+=11;
+                if (deck_y > 53){
+                    deck_y = 53;
+                }
+                break;
+
+            case ' ':
+                // select the piece and get ready to play it. 
 
             case 10: 
                 if (turn < 0){
@@ -117,13 +142,27 @@ int main(){
 
         mvwprintw(stdscr, 5, 5, "Player 1 points: %d", p1.points);
 
+
+        // refresh to erase old selection
+        werase(deckSelection);
+        wrefresh(deckSelection);
+
         werase(gridSelection);
         wrefresh(gridSelection);
 
+        // highlights user selection of DECK
+        deckSelection = newwin(10, 18, deck_y, 11);
+        box(deckSelection, 0, 0);
+        wmove(deckSelection, deck_y, 11);
+        wrefresh(deckSelection);
+
+
+        // highlights user selection of GRID
         gridSelection = newwin(13, 21, y+1, x+2);
         box(gridSelection, 0, 0);
         wmove(gridSelection, y, x);
         
+        // second refresh to draw new selection
         wrefresh(gridSelection);
     }
 
