@@ -79,59 +79,77 @@ int main(){
     int turn = 1;
 
     while (true){
+
         int pressedKey = getch();
-        
-        switch(pressedKey) {
-            case KEY_UP:    y-=20; grid_y--; break;
-            case KEY_DOWN:  y+=20; grid_y++; break;
-            case KEY_LEFT:  x-=50; grid_x--; break;
-            case KEY_RIGHT: x+=50; grid_x++; break;
+        while (pressedKey != ' '){
+            pressedKey = getch();
+            switch(pressedKey){
+                case 'w':
+                    deck_y-=11;
+                    if (deck_y < 9){
+                        deck_y = 9;
+                    }
+                    break;
+                case 's':
+                    deck_y+=11;
+                    if (deck_y > 53){
+                        deck_y = 53;
+                    }
+                    break;
+            }
 
-            case 'w':
-                deck_y-=11;
-                if (deck_y < 9){
-                    deck_y = 9;
-                }
-                break;
-            case 's':
-                deck_y+=11;
-                if (deck_y > 53){
-                    deck_y = 53;
-                }
-                break;
+            // refresh to erase old selection
+            werase(deckSelection);
+            wrefresh(deckSelection);
 
-            case ' ':
-                // select the piece and get ready to play it. 
-
-            case 10: 
-                if (turn < 0){
-                    p1.points = playerScore(boardPieces);
-                }
-
-                piece_number = calculateCellNumber(grid_x, grid_y);
-                setPiece(&boardPieces, piece_number, turn);
-                printFullBoard(boardPieces, turn);
-                turn = toggleTurn(turn);
-
-                break;
+            // highlights user selection of DECK
+            deckSelection = newwin(10, 18, deck_y, 11);
+            box(deckSelection, 0, 0);
+            wmove(deckSelection, deck_y, 11);
+            wrefresh(deckSelection);
+            
         }
 
-        if (grid_y == 3){
-            grid_y = 2;
-            y-=20;
-        }
-        else if (grid_y == -1){
-            grid_y = 0;
-            y+=20;
-        }
+        while (pressedKey != 10){
+            pressedKey = getch();
+            
+            switch(pressedKey) {
+                case KEY_UP:    y-=20; grid_y--; break;
+                case KEY_DOWN:  y+=20; grid_y++; break;
+                case KEY_LEFT:  x-=50; grid_x--; break;
+                case KEY_RIGHT: x+=50; grid_x++; break;
 
-        if (grid_x == 3){
-            grid_x = 2;
-            x-=50;
-        }
-        else if (grid_x == -1){
-            grid_x = 0;
-            x+=50;
+            }
+
+            if (grid_y == 3){
+                grid_y = 2;
+                y-=20;
+            }
+            else if (grid_y == -1){
+                grid_y = 0;
+                y+=20;
+            }
+
+            if (grid_x == 3){
+                grid_x = 2;
+                x-=50;
+            }
+            else if (grid_x == -1){
+                grid_x = 0;
+                x+=50;
+            }
+
+            werase(gridSelection);
+            wrefresh(gridSelection);
+
+            // highlights user selection of GRID
+            gridSelection = newwin(13, 21, y+1, x+2);
+            box(gridSelection, 0, 0);
+            wmove(gridSelection, y, x);
+            
+            // second refresh to draw new selection
+            wrefresh(gridSelection);
+
         }
 
         if (gameIsOver(&boardPieces)){
@@ -140,30 +158,17 @@ int main(){
             mvwprintw(stdscr, 28, 102, "game over");
         }
 
-        mvwprintw(stdscr, 5, 5, "Player 1 points: %d", p1.points);
+            mvwprintw(stdscr, 5, 5, "Player 1 points: %d", p1.points);
 
+        if (turn < 0){
+            p1.points = playerScore(boardPieces);
+        }
 
-        // refresh to erase old selection
-        werase(deckSelection);
-        wrefresh(deckSelection);
-
-        werase(gridSelection);
-        wrefresh(gridSelection);
-
-        // highlights user selection of DECK
-        deckSelection = newwin(10, 18, deck_y, 11);
-        box(deckSelection, 0, 0);
-        wmove(deckSelection, deck_y, 11);
-        wrefresh(deckSelection);
-
-
-        // highlights user selection of GRID
-        gridSelection = newwin(13, 21, y+1, x+2);
-        box(gridSelection, 0, 0);
-        wmove(gridSelection, y, x);
+        piece_number = calculateCellNumber(grid_x, grid_y);
+        setPiece(&boardPieces, piece_number, turn);
+        printFullBoard(boardPieces, turn);
+        turn = toggleTurn(turn);
         
-        // second refresh to draw new selection
-        wrefresh(gridSelection);
     }
 
     refresh();
