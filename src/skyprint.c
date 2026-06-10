@@ -90,11 +90,12 @@ void printPlayerDeck(struct Player player, struct Pieces deckPieces){
 
     WINDOW* playerDeckBorder = newwin(56, 20, 8, 10);
     wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
+    int deckPiece=0;
+    int pieceToPrint=0;
     for (int deckWall=0; deckWall < 55; deckWall+=11){
         mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
-        for (int y_graphic=0; y_graphic<6; y_graphic++){
-            mvwprintw(playerDeckBorder, deckWall+y_graphic+1, 2, (char *)deckPieces.deck_arkeyan_bomber[y_graphic]);
-        }
+        pickDeckSkystone(playerDeckBorder, deckWall, deckPieces, player.stones[deckPiece]);
+        deckPiece++;
     }
 
     refresh();
