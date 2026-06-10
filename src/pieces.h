@@ -12,9 +12,9 @@ struct Pieces {
 
     char deck_crystal_golem[6][12];
 
-    char deck_blaze_brewer[6][12];
+    char deck_blaze_brewer[6][36];
 
-    char deck_conquertron[6][12];
+    char deck_conquertron[6][36];
 
     char deck_dragonet[6][12];
 
@@ -28,9 +28,9 @@ struct Pieces {
 
     char board_crystal_golem[12][21];
 
-    char board_blaze_brewer[12][21];
+    char board_blaze_brewer[12][63];
 
-    char board_conquertron[12][21];
+    char board_conquertron[12][63];
 
     char board_dragonet[12][21];
 
