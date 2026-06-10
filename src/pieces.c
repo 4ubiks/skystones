@@ -74,12 +74,14 @@ struct Pieces initializeDeckPieces(struct Pieces pieces){
             "    | |   "
         }
     };
+
+    return pieces;
 }
 
 struct Pieces initializeBoardPieces(struct Pieces pieces){
 pieces = (struct Pieces){
         .board_grenade_general = {
-        "                         .",
+        "              .",
         "            \'/",
         "          -=>*<=-",
         "         .-'/.\\",
@@ -198,4 +200,6 @@ pieces = (struct Pieces){
             "    | |   "
         }
     };
+
+    return pieces;
 }
