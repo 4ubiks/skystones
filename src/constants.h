@@ -18,4 +18,4 @@
 #define LOWER_RIGHT_CORNER 0xbc
 #define LOWER_LEFT_CORNER 0xbd
 
-#define BOARD_ICON_BOUNDS 0x12
+#define BOARD_ICON_BOUND 0x12
