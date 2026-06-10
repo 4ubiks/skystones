@@ -4,6 +4,7 @@
 
 // Custom files
 #include "constants.h"
+#include "pieces.h"
 #include "player.h"
 #include "board.h"
 #include "stone.h"
@@ -47,6 +48,9 @@ int main(){
     struct Board boardPieces;
     boardPieces = initializeBoard(boardPieces);
 
+    struct Pieces deckPieces;
+    deckPieces = initializeDeckPieces(deckPieces);
+
     // GRID selection initalization
     WINDOW *gridSelection = newwin(13, 21, 9, 54);
     box(gridSelection, 0, 0);
@@ -64,7 +68,7 @@ int main(){
     wrefresh(deckSelection);
     wrefresh(gridSelection);
 
-    printPlayerDeck(p1);
+    printPlayerDeck(p1, deckPieces);
 
     y=8;
     x=52;
