@@ -4,11 +4,14 @@
 #include "skyinit.h"
 
 struct Player initializePlayer(struct Player player, int teamNumber){
-    player.stone_1 = ARKEYAN_BOMBER;
-    player.stone_2 = D_RIVETER;
-    player.stone_3 = BLAZE_BREWER;
-    player.stone_4 = CONQUERTRON;
-    player.stone_5 = GRENADE_GENERAL;
+
+    int stone=0;
+
+    player.stones[0] = ARKEYAN_BOMBER;
+    player.stones[1] = D_RIVETER;
+    player.stones[2] = BLAZE_BREWER;
+    player.stones[3] = CONQUERTRON;
+    player.stones[4] = GRENADE_GENERAL;
 
     player.points = 0;
 
