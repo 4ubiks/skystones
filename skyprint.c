@@ -4,6 +4,8 @@
 
 // custom files
 #include "player.h"
+#include "constants.h"
+#include "pieces.h"
 #include "board.h"
 #include "skyprint.h"
 #include "skyfuncs.h"
@@ -92,6 +94,8 @@ void printPlayerDeck(struct Player player){
         mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
     }
 
+
+
     mvwprintw(playerDeckBorder, 0, 0, "Player 1's Deck:");
     mvwprintw(playerDeckBorder, 10, 4, "[]");
     mvwprintw(playerDeckBorder, 20, 4, "[]");
@@ -112,4 +116,16 @@ void enterPiece(int x, int y){
 
     refresh();
     wrefresh(enterPiece);
+}
+
+void printDeckSkystone(char* stoneGraphic[6][12], int x, int y, WINDOW* currentPieceWindow){
+    for (int y_graphic=0; y_graphic<6; y_graphic++){
+        
+    }
+}
+
+void printBoardSkystone(char* stoneGraphic[12][21], int x, int y, WINDOW* currentPieceWindow){
+    for (int y_graphic=0; y_graphic<12; y_graphic++){
+        
+    }
 }
