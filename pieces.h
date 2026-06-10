@@ -39,4 +39,6 @@ struct Pieces {
 
 struct Pieces initializeDeckPieces(struct Pieces);
 
+struct Pieces initializeBoardPieces(struct Pieces);
+
 #endif

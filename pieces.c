@@ -73,3 +73,7 @@ struct Pieces initializeDeckPieces(struct Pieces pieces){
         "    | |   "
     };
 }
+
+struct Pieces initializeBoardPieces(struct Pieces pieces){
+    
+}
