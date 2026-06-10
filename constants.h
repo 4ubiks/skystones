@@ -17,3 +17,5 @@
 #define UPPER_LEFT_CORNER 0xc9
 #define LOWER_RIGHT_CORNER 0xbc
 #define LOWER_LEFT_CORNER 0xbd
+
+#define BOARD_ICON_BOUNDS 0x12
