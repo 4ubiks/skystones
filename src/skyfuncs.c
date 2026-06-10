@@ -3,6 +3,8 @@
 
 // custom includes
 #include "board.h"
+#include "constants.h"
+#include "pieces.h"
 #include "player.h"
 #include "skyfuncs.h"
 #include "skyinit.h"
@@ -78,4 +80,41 @@ int playerScore(struct Board board){
     }
 
     return tmpScore;
+}
+
+void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, struct Pieces pieces, int deckPiece){
+    switch (deckPiece){
+        case GRENADE_GENERAL:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_grenade_general[pieceRow]);
+            }
+        case ARKEYAN_BOMBER:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_arkeyan_bomber[pieceRow]);
+            }
+        case ROOT_RUNNER:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_root_runner[pieceRow]);
+            }
+        case CRYSTAL_GOLEM:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_crystal_golem[pieceRow]);
+            }
+        case BLAZE_BREWER:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_blaze_brewer[pieceRow]);
+            }
+        case CONQUERTRON:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_conquertron[pieceRow]);
+            }
+        case DRAGONET:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_dragonet[pieceRow]);
+            }
+        case D_RIVETER:
+            for (int pieceRow=0; pieceRow<6; pieceRow++){
+                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_d_riveter[pieceRow]);
+            }
+    }
 }
