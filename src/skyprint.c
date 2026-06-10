@@ -86,22 +86,16 @@ void printPieceCoordinates(int grid_x, int grid_y){
     mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
 }
 
-void printPlayerDeck(struct Player player){
+void printPlayerDeck(struct Player player, struct Pieces deckPieces){
 
     WINDOW* playerDeckBorder = newwin(56, 20, 8, 10);
     wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
     for (int deckWall=0; deckWall < 55; deckWall+=11){
         mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
+        for (int y_graphic=0; y_graphic<6; y_graphic++){
+            mvwprintw(playerDeckBorder, deckWall+y_graphic+1, 2, (char *)deckPieces.deck_arkeyan_bomber[y_graphic]);
+        }
     }
-
-
-
-    mvwprintw(playerDeckBorder, 0, 0, "Player 1's Deck:");
-    mvwprintw(playerDeckBorder, 10, 4, "[]");
-    mvwprintw(playerDeckBorder, 20, 4, "[]");
-    mvwprintw(playerDeckBorder, 30, 4, "[]");
-    mvwprintw(playerDeckBorder, 40, 4, "[]");
-    mvwprintw(playerDeckBorder, 50, 4, "[]");
 
     refresh();
     wrefresh(playerDeckBorder);
@@ -116,16 +110,4 @@ void enterPiece(int x, int y){
 
     refresh();
     wrefresh(enterPiece);
-}
-
-void printDeckSkystone(char* stoneGraphic[6][12], int x, int y, WINDOW* currentPieceWindow){
-    for (int y_graphic=0; y_graphic<6; y_graphic++){
-        
-    }
-}
-
-void printBoardSkystone(char* stoneGraphic[12][21], int x, int y, WINDOW* currentPieceWindow){
-    for (int y_graphic=0; y_graphic<12; y_graphic++){
-        
-    }
 }
