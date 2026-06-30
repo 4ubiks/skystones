@@ -77,9 +77,9 @@ struct Pieces {
     char DRAGONET_D;
 
     char D_RIVETER_A;
-    char D_RIVETER_A;
-    char D_RIVETER_A;
-    char D_RIVETER_A;
+    char D_RIVETER_B;
+    char D_RIVETER_C;
+    char D_RIVETER_D;
 
 };
 
