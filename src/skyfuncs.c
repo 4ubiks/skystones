@@ -53,14 +53,16 @@ int toggleTurn(int turn){
     return turn;
 }
 
-void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, WINDOW* newPieceWindow2, struct Board board, int piece_count){
-    if (board.boardPiecePlayer[piece_count] == '1'){
+void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, WINDOW* newPieceWindow2, struct Board board, int piece_count, const char* piecePlayed){
+    if (board.boardPiecePlayer[piece_count] == '1') {
         wbkgd(newPieceWindow1, COLOR_PAIR(2));
         wborder(newPieceWindow1, '<', '>', 206, 206, '+', '+', '+', '+');
+        mvwprintw(newPieceWindow1, 5, 5, piecePlayed);
     }
-    else{
+    else {
         wbkgd(newPieceWindow2, COLOR_PAIR(3));
         wborder(newPieceWindow2, '<', '>', 206, 206, '+', '+', '+', '+');
+        mvwprintw(newPieceWindow2, 5, 5, piecePlayed);
     }
     refresh();
     if (board.boardPiecePlayer[piece_count] == '1'){
@@ -145,4 +147,37 @@ void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, struct Pieces pi
 
 
     }
+}
+
+char* setDeckPieceName(int selectedPiece){
+    switch (selectedPiece){
+        case GRENADE_GENERAL:
+            return "Grenade General";
+
+        case ARKEYAN_BOMBER:
+            return "Arkeyan Bomber";
+
+        case ROOT_RUNNER:
+            return "Root Runner";
+
+        case CRYSTAL_GOLEM:
+            return "Crystal Golem";
+
+        case BLAZE_BREWER:
+            return "Blaze Brewer";
+
+        case CONQUERTRON:
+            return "Conquertron";
+
+        case DRAGONET:
+            return "Dragonet";
+
+        case D_RIVETER:
+            return "D-Riveter";
+        
+        case PIECE_PLAYED:
+            return 0x0;
+    }
+
+    return 0;
 }
