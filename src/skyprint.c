@@ -56,7 +56,7 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printFullBoard(struct Board board, int turn){
+void printFullBoard(struct Board board, int turn, const char* piecePlayed){
     int tmp_x = 52;
     int tmp_y = 8;
 
@@ -71,7 +71,7 @@ void printFullBoard(struct Board board, int turn){
             WINDOW* newPieceWindow2 = newwin(15, 25, tmp_y, tmp_x);
 
             if (board.boardPieceIsPresent[piece_count] == '1'){
-                selectPlayerColor(tmp_x, tmp_y, newPieceWindow1, newPieceWindow2, board, piece_count);
+                selectPlayerColor(tmp_x, tmp_y, newPieceWindow1, newPieceWindow2, board, piece_count, piecePlayed);
             }
             piece_count++;
             tmp_x+=50;
