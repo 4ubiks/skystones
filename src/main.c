@@ -40,10 +40,10 @@ int main(){
     mvwprintw(stdscr, 2, 2, "Skystones-C");
 
     struct Player p1;
-    p1 = initializePlayer(p1, PLAYER_ONE);
+    p1 = initializePlayer1(p1, PLAYER_ONE);
 
     struct Player p2;
-    p2 = initializePlayer(p2, PLAYER_TWO);
+    p2 = initializePlayer2(p2, PLAYER_TWO);
 
     struct Board boardPieces;
     boardPieces = initializeBoard(boardPieces);
@@ -68,6 +68,7 @@ int main(){
     wrefresh(deckSelection);
     wrefresh(gridSelection);
 
+    // print the first player's deck
     printPlayerDeck(p1, deckPieces);
 
     y=8;
@@ -78,6 +79,7 @@ int main(){
 
     int deck_y = 9;
     int piece_number = 0;
+    int deck_piece_played=0;
 
     // when `turn` is positive, player 1's turn. otherwise, p2's turn.
     int turn = 1;
@@ -92,13 +94,17 @@ int main(){
                     deck_y-=11;
                     if (deck_y < 9){
                         deck_y = 9;
+                        break;
                     }
+                    deck_piece_played -=1;
                     break;
                 case 's':
                     deck_y+=11;
                     if (deck_y > 53){
                         deck_y = 53;
+                        break;
                     }
+                    deck_piece_played +=1;
                     break;
             }
 
@@ -110,8 +116,24 @@ int main(){
             deckSelection = newwin(10, 18, deck_y, 11);
             box(deckSelection, 0, 0);
             wmove(deckSelection, deck_y, 11);
+
+            if (turn > 0){
+                printPlayerDeck(p1, deckPieces);
+            }
+            else{
+                printPlayerDeck(p2, deckPieces);
+            }
+
             wrefresh(deckSelection);
+
             
+        }
+
+        if (turn > 0){
+            p1.stones[deck_piece_played] = PIECE_PLAYED;
+        }
+        else {
+            p2.stones[deck_piece_played] = PIECE_PLAYED;
         }
 
         while (pressedKey != 10){
