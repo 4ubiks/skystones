@@ -80,6 +80,8 @@ int main(){
     int deck_y = 9;
     int piece_number = 0;
     int deck_piece_played=0;
+    char piecePlayed = OPEN;
+    const char* piecePlayedString = "DEFAULT";
 
     // when `turn` is positive, player 1's turn. otherwise, p2's turn.
     int turn = 1;
@@ -130,9 +132,11 @@ int main(){
         }
 
         if (turn > 0){
+            piecePlayedString = setDeckPieceName(p1.stones[deck_piece_played]);
             p1.stones[deck_piece_played] = PIECE_PLAYED;
         }
         else {
+            piecePlayedString = setDeckPieceName(p2.stones[deck_piece_played]);
             p2.stones[deck_piece_played] = PIECE_PLAYED;
         }
 
@@ -176,6 +180,8 @@ int main(){
             // second refresh to draw new selection
             wrefresh(gridSelection);
 
+            // piecePlayed needs to go here and print out what was played, and where. 
+
         }
 
         if (gameIsOver(&boardPieces)){
@@ -192,7 +198,8 @@ int main(){
 
         piece_number = calculateCellNumber(grid_x, grid_y);
         setPiece(&boardPieces, piece_number, turn);
-        printFullBoard(boardPieces, turn);
+
+        printFullBoard(boardPieces, turn, piecePlayedString);
         turn = toggleTurn(turn);
         
     }
