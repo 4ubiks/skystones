@@ -85,36 +85,64 @@ int playerScore(struct Board board){
 void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, struct Pieces pieces, int deckPiece){
     switch (deckPiece){
         case GRENADE_GENERAL:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_grenade_general[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "GRENADE");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_grenade_general[pieceRow]);
+            // }
+            break;
+
         case ARKEYAN_BOMBER:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_arkeyan_bomber[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "ARKEYAN");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_arkeyan_bomber[pieceRow]);
+            // }
+            break;
+
         case ROOT_RUNNER:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_root_runner[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "ROOT");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_root_runner[pieceRow]);
+            // }
+            break;
+
         case CRYSTAL_GOLEM:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_crystal_golem[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "CRYSTAL");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_crystal_golem[pieceRow]);
+            // }
+            break;
+
         case BLAZE_BREWER:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_blaze_brewer[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "BLAZE");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_blaze_brewer[pieceRow]);
+            // }
+            break;
+
         case CONQUERTRON:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_conquertron[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "CONQUERTRON");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_conquertron[pieceRow]);
+            // }
+            break;
+
         case DRAGONET:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_dragonet[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "DRAGONET");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_dragonet[pieceRow]);
+            // }
+            break;
+
         case D_RIVETER:
-            for (int pieceRow=0; pieceRow<6; pieceRow++){
-                mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_d_riveter[pieceRow]);
-            }
+            mvwprintw(currentPieceWindow, deckWall+2, 2, "D-RIVET");
+            // for (int pieceRow=0; pieceRow<6; pieceRow++){
+            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_d_riveter[pieceRow]);
+            // }
+            break;
+        
+            case PIECE_PLAYED:
+                break;
+
+
     }
 }
