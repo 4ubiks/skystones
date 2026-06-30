@@ -7,6 +7,7 @@
 #define CONQUERTRON 0x6
 #define DRAGONET 0x7
 #define D_RIVETER 0x8
+#define PIECE_PLAYED 0xa
 
 // user constants
 #define PLAYER_ONE 0x1
