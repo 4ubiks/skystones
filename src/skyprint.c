@@ -91,7 +91,6 @@ void printPlayerDeck(struct Player player, struct Pieces deckPieces){
     WINDOW* playerDeckBorder = newwin(56, 20, 8, 10);
     wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
     int deckPiece=0;
-    int pieceToPrint=0;
     for (int deckWall=0; deckWall < 55; deckWall+=11){
         mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
         pickDeckSkystone(playerDeckBorder, deckWall, deckPieces, player.stones[deckPiece]);
