@@ -44,6 +44,8 @@ struct Board initializeBoard(struct Board board){
     for (int i=0; i<9; i++){
         board.boardPieceIsPresent[i] = '0';
         board.boardPiecePlayer[i] = '0';
+
+        //board.boardPiecesPlayed[i] = "            ";
     }
 
     return board;
