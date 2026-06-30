@@ -12,6 +12,8 @@
 // user constants
 #define PLAYER_ONE 0x1
 #define PLAYER_TWO 0x2
+#define OPEN 0x0
+#define FULL 0x1
 
 // ascii graphics characters
 #define UPPER_RIGHT_CORNER 0xbb
