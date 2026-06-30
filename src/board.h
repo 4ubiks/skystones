@@ -10,7 +10,7 @@ struct Board {
     char boardPiecePlayer[9];
 
     // holds the name of each piece played at each spot on the 3x3 grid
-    char boardPiecesPlayed[9];
+    const char *boardPiecesPlayed[9];
 };
 
 #endif
