@@ -3,7 +3,7 @@
 #include "board.h"
 #include "skyinit.h"
 
-struct Player initializePlayer(struct Player player, int teamNumber){
+struct Player initializePlayer1(struct Player player, int teamNumber){
 
     int stone=0;
 
@@ -12,6 +12,23 @@ struct Player initializePlayer(struct Player player, int teamNumber){
     player.stones[2] = BLAZE_BREWER;
     player.stones[3] = CONQUERTRON;
     player.stones[4] = GRENADE_GENERAL;
+
+    player.points = 0;
+
+    player.team = teamNumber;
+
+    return player;
+}
+
+struct Player initializePlayer2(struct Player player, int teamNumber){
+
+    int stone=0;
+
+    player.stones[0] = D_RIVETER;
+    player.stones[1] = CONQUERTRON;
+    player.stones[2] = ROOT_RUNNER;
+    player.stones[3] = DRAGONET;
+    player.stones[4] = ARKEYAN_BOMBER;
 
     player.points = 0;
 
