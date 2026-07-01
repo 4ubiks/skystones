@@ -56,7 +56,7 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printFullBoard(struct Board board, int turn, const char* piecePlayed){
+void printBoardPieces(struct Board board, int turn, const char* piecePlayed){
     int tmp_x = 52;
     int tmp_y = 8;
 
@@ -79,6 +79,11 @@ void printFullBoard(struct Board board, int turn, const char* piecePlayed){
         tmp_x = 52;
         tmp_y+=20;
     }
+}
+
+// prints individual piece information (name, graphic, spikes)
+void printBoardPieceContent(struct Board board){
+    
 }
 
 void printPieceCoordinates(int grid_x, int grid_y){
