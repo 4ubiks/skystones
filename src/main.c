@@ -199,7 +199,7 @@ int main(){
         piece_number = calculateCellNumber(grid_x, grid_y);
         setPiece(&boardPieces, piece_number, turn);
 
-        printFullBoard(boardPieces, turn, piecePlayedString);
+        printBoardPieces(boardPieces, turn, piecePlayedString);
         turn = toggleTurn(turn);
         
     }
