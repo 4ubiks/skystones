@@ -56,28 +56,44 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printBoardPieces(struct Board board, int turn, const char* piecePlayed){
+void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pieces *boardPieceCharacteristics){
     int tmp_x = 52;
     int tmp_y = 8;
 
     init_pair(2, COLOR_RED, COLOR_BLACK);
     init_pair(3, COLOR_BLUE, COLOR_BLACK);
 
+    /*
+    I need nine piece windows. This will be an irritating overhaul, but it'll simplify everything a lot once it's completed. 
+
+    Action is called nine times. Each function call increments the x, y coordinates to create each WINDOW* object in a different location. 
+    
+    I am *not* looping this. It's nine calls, I can justify hard-coding it here, because I need to ensure each piece window does not
+    call the same pointer that points to the same character array.
+    */
+
+    WINDOW* pieceBoardArray[9];
 
     int piece_count = 0;
+
+    int x=0;
+    int y=0;
+
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
-            WINDOW* newPieceWindow1 = newwin(15, 25, tmp_y, tmp_x);
-            WINDOW* newPieceWindow2 = newwin(15, 25, tmp_y, tmp_x);
+            pieceBoardArray[piece_count] = newwin(15, 25, tmp_y, tmp_x);
 
             if (board.boardPieceIsPresent[piece_count] == '1'){
-                selectPlayerColor(tmp_x, tmp_y, newPieceWindow1, newPieceWindow2, board, piece_count, piecePlayed);
+                assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
+                selectPlayerColor(tmp_x, tmp_y, pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
             }
             piece_count++;
             tmp_x+=50;
+            x++;
         }
         tmp_x = 52;
         tmp_y+=20;
+        y++;
     }
 }
 
