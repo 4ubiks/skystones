@@ -180,8 +180,6 @@ int main(){
             // second refresh to draw new selection
             wrefresh(gridSelection);
 
-            // piecePlayed needs to go here and print out what was played, and where. 
-
         }
 
         if (gameIsOver(&boardPieces)){
