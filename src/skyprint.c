@@ -1,5 +1,6 @@
 // c libraries
 #include "stdio.h"
+#include "string.h"
 #include "ncurses.h"
 
 // custom files
@@ -126,6 +127,33 @@ void printPlayerDeck(struct Player player, struct Pieces deckPieces){
 
     refresh();
     wrefresh(playerDeckBorder);
+}
+
+void printPieceSpikes(WINDOW* spikesToPrint, char* itemToPrint){
+    if (strcmp(itemToPrint, "GRENADE") == 0){
+        // grenade
+    }
+    else if (strcmp(itemToPrint, "ARKEYAN") == 0){
+        // arkeyan
+    }
+    else if (strcmp(itemToPrint, "ROOT") == 0){
+        // root
+    }
+    else if (strcmp(itemToPrint, "CRYSTAL") == 0){
+        // crystal
+    }
+    else if (strcmp(itemToPrint, "BLAZE") == 0){
+        // blaze brewer
+    }
+    else if (strcmp(itemToPrint, "CONQUERTRON") == 0){
+        // conquertron
+    }
+    else if (strcmp(itemToPrint, "DRAGONET") == 0){
+        // dragonet
+    }
+    else if (strcmp(itemToPrint, "D-RIVET") == 0){
+        // d-rivet
+    }
 }
 
 void enterPiece(int x, int y){
