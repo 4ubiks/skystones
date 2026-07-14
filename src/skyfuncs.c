@@ -53,24 +53,18 @@ int toggleTurn(int turn){
     return turn;
 }
 
-void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, WINDOW* newPieceWindow2, struct Board board, int piece_count, const char* piecePlayed){
+void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, struct Board board, int piece_count, const char* piecePlayed){
     if (board.boardPiecePlayer[piece_count] == '1') {
         wbkgd(newPieceWindow1, COLOR_PAIR(2));
-        wborder(newPieceWindow1, '<', '>', 206, 206, '+', '+', '+', '+');
-        mvwprintw(newPieceWindow1, 5, 5, piecePlayed);
     }
     else {
-        wbkgd(newPieceWindow2, COLOR_PAIR(3));
-        wborder(newPieceWindow2, '<', '>', 206, 206, '+', '+', '+', '+');
-        mvwprintw(newPieceWindow2, 5, 5, piecePlayed);
+        wbkgd(newPieceWindow1, COLOR_PAIR(3));
     }
+    
+    wborder(newPieceWindow1, '<', '>', 206, 206, '+', '+', '+', '+');
+    mvwprintw(newPieceWindow1, 5, 5, piecePlayed);
     refresh();
-    if (board.boardPiecePlayer[piece_count] == '1'){
-        wrefresh(newPieceWindow1);
-    }
-    else{
-        wrefresh(newPieceWindow2);
-    }
+    wrefresh(newPieceWindow1);
 }
 
 int playerScore(struct Board board){
@@ -180,4 +174,11 @@ char* setDeckPieceName(int selectedPiece){
     }
 
     return 0;
+}
+
+void assignPieceNames(struct Pieces *boardPieces, int thePieceNumberPlayed, char* pieceName){
+    if (boardPieces->pieceAssignment[thePieceNumberPlayed] != 1){
+        boardPieces->pieces[thePieceNumberPlayed] = pieceName;
+        boardPieces->pieceAssignment[thePieceNumberPlayed] = 1;
+    }
 }
