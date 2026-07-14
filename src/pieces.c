@@ -203,3 +203,9 @@ pieces = (struct Pieces){
 
     return pieces;
 }
+
+void initializeNames(struct Pieces pieces){
+    for (int i=0; i<9; i++){
+        pieces.pieceAssignment[i] = 0;
+    }
+}
