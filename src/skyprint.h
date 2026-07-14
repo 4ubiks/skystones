@@ -8,4 +8,6 @@ void printPieceCoordinates(int grid_x, int grid_y);
 
 void printPlayerDeck(struct Player player, struct Pieces deckPieces);
 
+void printPieceSpikes(WINDOW* spikesToPrint, char* itemToPrint);
+
 void enterPiece(int x, int y);
