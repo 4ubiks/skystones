@@ -81,7 +81,7 @@ int main(){
     int piece_number = 0;
     int deck_piece_played=0;
     char piecePlayed = OPEN;
-    const char* piecePlayedString = "DEFAULT";
+    char* piecePlayedString = "DEFAULT";
 
     // when `turn` is positive, player 1's turn. otherwise, p2's turn.
     int turn = 1;
@@ -199,7 +199,7 @@ int main(){
         piece_number = calculateCellNumber(grid_x, grid_y);
         setPiece(&boardPieces, piece_number, turn);
 
-        printBoardPieces(boardPieces, turn, piecePlayedString);
+        printBoardPieces(boardPieces, turn, piecePlayedString, &deckPieces);
         turn = toggleTurn(turn);
         
     }
