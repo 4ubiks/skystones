@@ -36,6 +36,12 @@ struct Pieces {
 
     char board_d_riveter[12][21];
 
+    // piece array 
+    int pieceAssignment[9];
+
+    // name array
+    char *pieces[9];
+
     // Number of spikes in each respective direction of the piece
     // A: UP
     // B: RIGHT
