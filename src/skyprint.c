@@ -79,6 +79,12 @@ void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pi
     int x=0;
     int y=0;
 
+    // piece spike numbers
+    int piece_a = 0;
+    int piece_b = 0;
+    int piece_c = 0;
+    int piece_d = 0;
+
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
             pieceBoardArray[piece_count] = newwin(15, 25, tmp_y, tmp_x);
