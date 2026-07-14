@@ -1,6 +1,6 @@
 void printBlankBoard();
 
-void printBoardPieces(struct Board, int turn, const char* piecePlayed);
+void printBoardPieces(struct Board, int turn, char* piecePlayed, struct Pieces *boardPieceCharacteristics);
 
 void printBoardPieceContent(struct Board board);
 
