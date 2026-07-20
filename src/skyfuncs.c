@@ -54,7 +54,7 @@ int toggleTurn(int turn){
     return turn;
 }
 
-void selectPlayerColor(int tmp_x, int tmp_y, WINDOW* newPieceWindow1, struct Board board, int piece_count, const char* piecePlayed){
+void selectPlayerColor(WINDOW* newPieceWindow1, struct Board board, int piece_count, const char* piecePlayed){
     if (board.boardPiecePlayer[piece_count] == '1') {
         wbkgd(newPieceWindow1, COLOR_PAIR(2));
     }   
@@ -79,62 +79,38 @@ int playerScore(struct Board board){
     return tmpScore;
 }
 
-void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, struct Pieces pieces, int deckPiece){
+void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece){
     switch (deckPiece){
         case GRENADE_GENERAL:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "GRENADE");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_grenade_general[pieceRow]);
-            // }
             break;
 
         case ARKEYAN_BOMBER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "ARKEYAN");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_arkeyan_bomber[pieceRow]);
-            // }
             break;
 
         case ROOT_RUNNER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "ROOT");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_root_runner[pieceRow]);
-            // }
             break;
 
         case CRYSTAL_GOLEM:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "CRYSTAL");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_crystal_golem[pieceRow]);
-            // }
             break;
 
         case BLAZE_BREWER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "BLAZE");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_blaze_brewer[pieceRow]);
-            // }
             break;
 
         case CONQUERTRON:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "CONQUERTRON");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_conquertron[pieceRow]);
-            // }
             break;
 
         case DRAGONET:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "DRAGONET");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_dragonet[pieceRow]);
-            // }
             break;
 
         case D_RIVETER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "D-RIVET");
-            // for (int pieceRow=0; pieceRow<6; pieceRow++){
-            //     mvwprintw(currentPieceWindow, deckWall+pieceRow+1, 2, pieces.deck_d_riveter[pieceRow]);
-            // }
             break;
         
             case PIECE_PLAYED:
