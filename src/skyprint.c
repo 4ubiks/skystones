@@ -69,8 +69,6 @@ void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pi
 
     Action is called nine times. Each function call increments the x, y coordinates to create each WINDOW* object in a different location. 
     
-    I am *not* looping this. It's nine calls, I can justify hard-coding it here, because I need to ensure each piece window does not
-    call the same pointer that points to the same character array.
     */
 
     WINDOW* pieceBoardArray[9];
@@ -81,10 +79,6 @@ void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pi
     int y=0;
 
     // piece spike numbers
-    char* piece_a = "0";
-    char* piece_b = "0";
-    char* piece_c = "0";
-    char* piece_d = "0";
 
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
@@ -94,10 +88,7 @@ void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pi
                 assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
                 selectPlayerColor(tmp_x, tmp_y, pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
 
-                mvwprintw(pieceBoardArray[piece_count], 7, 8, piece_a);
-                mvwprintw(pieceBoardArray[piece_count], 8, 10, piece_b);
-                mvwprintw(pieceBoardArray[piece_count], 8, 6, piece_c);
-                mvwprintw(pieceBoardArray[piece_count], 9, 8, piece_d);
+                selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecePlayed);
 
                 refresh();
                 wrefresh(pieceBoardArray[piece_count]);
