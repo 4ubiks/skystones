@@ -1,5 +1,6 @@
 // c includes
 #include "ncurses.h"
+#include "string.h"
 
 // custom includes
 #include "board.h"
@@ -181,4 +182,64 @@ void assignPieceNames(struct Pieces *boardPieces, int thePieceNumberPlayed, char
         boardPieces->pieces[thePieceNumberPlayed] = pieceName;
         boardPieces->pieceAssignment[thePieceNumberPlayed] = 1;
     }
+}
+
+void selectPieceNumbers(WINDOW* pieceWindow, struct Pieces *pieces, char* piecePlayed){
+    if (strcmp(piecePlayed, "Grenade General") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->GRENADE_GENERAL_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->GRENADE_GENERAL_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->GRENADE_GENERAL_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->GRENADE_GENERAL_D);
+    }
+    else if (strcmp(piecePlayed, "Arkeyan Bomber") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->ARKEYAN_BOMBER_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->ARKEYAN_BOMBER_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->ARKEYAN_BOMBER_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->ARKEYAN_BOMBER_D);
+    }
+    else if (strcmp(piecePlayed, "Root Runner") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->ROOT_RUNNER_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->ROOT_RUNNER_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->ROOT_RUNNER_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->ROOT_RUNNER_D);
+    }
+    else if (strcmp(piecePlayed, "Crystal Golem") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->CRYSTAL_GOLEM_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->CRYSTAL_GOLEM_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->CRYSTAL_GOLEM_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->CRYSTAL_GOLEM_D);
+    }
+    else if (strcmp(piecePlayed, "Blaze Brewer") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->BLAZE_BREWER_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->BLAZE_BREWER_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->BLAZE_BREWER_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->BLAZE_BREWER_D);
+    }
+    else if (strcmp(piecePlayed, "Conquertron") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->CONQUERTRON_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->CONQUERTRON_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->CONQUERTRON_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->CONQUERTRON_D);
+    }
+    else if (strcmp(piecePlayed, "Dragonet") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->DRAGONET_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->DRAGONET_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->DRAGONET_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->DRAGONET_D);
+    }
+    else if (strcmp(piecePlayed, "D-Riveter") == 0){
+        mvwprintw(pieceWindow, 7, 8, "%s", pieces->D_RIVETER_A);
+        mvwprintw(pieceWindow, 8, 10, "%s", pieces->D_RIVETER_B);
+        mvwprintw(pieceWindow, 9, 8, "%s", pieces->D_RIVETER_C);
+        mvwprintw(pieceWindow, 8, 6, "%s", pieces->D_RIVETER_D);
+    }
+    else {
+        mvwprintw(pieceWindow, 7, 8, "0");
+        mvwprintw(pieceWindow, 8, 10, "0");
+        mvwprintw(pieceWindow, 8, 6, "0");
+        mvwprintw(pieceWindow, 9, 8, "0");
+    }
+
+    refresh();
+    wrefresh(pieceWindow);
 }
