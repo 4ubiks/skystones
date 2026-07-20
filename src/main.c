@@ -69,7 +69,7 @@ int main(){
     wrefresh(gridSelection);
 
     // print the first player's deck
-    printPlayerDeck(p1, deckPieces);
+    printPlayerDeck(p1);
 
     y=8;
     x=52;
@@ -120,10 +120,10 @@ int main(){
             wmove(deckSelection, deck_y, 11);
 
             if (turn > 0){
-                printPlayerDeck(p1, deckPieces);
+                printPlayerDeck(p1);
             }
             else{
-                printPlayerDeck(p2, deckPieces);
+                printPlayerDeck(p2);
             }
 
             wrefresh(deckSelection);
@@ -197,7 +197,7 @@ int main(){
         piece_number = calculateCellNumber(grid_x, grid_y);
         setPiece(&boardPieces, piece_number, turn);
         
-        printBoardPieces(boardPieces, turn, piecePlayedString, &deckPieces);
+        printBoardPieces(boardPieces, piecePlayedString, &deckPieces);
         turn = toggleTurn(turn);
         
     }
