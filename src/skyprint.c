@@ -81,10 +81,10 @@ void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pi
     int y=0;
 
     // piece spike numbers
-    int piece_a = 0;
-    int piece_b = 0;
-    int piece_c = 0;
-    int piece_d = 0;
+    char* piece_a = "0";
+    char* piece_b = "0";
+    char* piece_c = "0";
+    char* piece_d = "0";
 
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
@@ -93,6 +93,14 @@ void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pi
             if (board.boardPieceIsPresent[piece_count] == '1'){
                 assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
                 selectPlayerColor(tmp_x, tmp_y, pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
+
+                mvwprintw(pieceBoardArray[piece_count], 7, 8, piece_a);
+                mvwprintw(pieceBoardArray[piece_count], 8, 10, piece_b);
+                mvwprintw(pieceBoardArray[piece_count], 8, 6, piece_c);
+                mvwprintw(pieceBoardArray[piece_count], 9, 8, piece_d);
+
+                refresh();
+                wrefresh(pieceBoardArray[piece_count]);
             }
             piece_count++;
             tmp_x+=50;
