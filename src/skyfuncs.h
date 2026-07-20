@@ -16,3 +16,5 @@ void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, struct Pieces de
 char* setDeckPieceName(int selectedPiece);
 
 void assignPieceNames(struct Pieces *boardPieces, int thePieceNumberPlayed, char* pieceName);
+
+void selectPieceNumbers(WINDOW* pieceWindow, struct Pieces *pieces, char* piecePlayed);
