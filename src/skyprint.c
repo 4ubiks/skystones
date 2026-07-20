@@ -57,7 +57,7 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pieces *boardPieceCharacteristics){
+void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boardPieceCharacteristics){
     int tmp_x = 52;
     int tmp_y = 8;
 
@@ -86,7 +86,7 @@ void printBoardPieces(struct Board board, int turn, char* piecePlayed, struct Pi
 
             if (board.boardPieceIsPresent[piece_count] == '1'){
                 assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
-                selectPlayerColor(tmp_x, tmp_y, pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
+                selectPlayerColor(pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
 
                 selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecePlayed);
 
@@ -113,46 +113,19 @@ void printPieceCoordinates(int grid_x, int grid_y){
     mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
 }
 
-void printPlayerDeck(struct Player player, struct Pieces deckPieces){
+void printPlayerDeck(struct Player player){
 
     WINDOW* playerDeckBorder = newwin(56, 20, 8, 10);
     wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
     int deckPiece=0;
     for (int deckWall=0; deckWall < 55; deckWall+=11){
         mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
-        pickDeckSkystone(playerDeckBorder, deckWall, deckPieces, player.stones[deckPiece]);
+        pickDeckSkystone(playerDeckBorder, deckWall, player.stones[deckPiece]);
         deckPiece++;
     }
 
     refresh();
     wrefresh(playerDeckBorder);
-}
-
-void printPieceSpikes(WINDOW* spikesToPrint, char* itemToPrint){
-    if (strcmp(itemToPrint, "GRENADE") == 0){
-        // grenade
-    }
-    else if (strcmp(itemToPrint, "ARKEYAN") == 0){
-        // arkeyan
-    }
-    else if (strcmp(itemToPrint, "ROOT") == 0){
-        // root
-    }
-    else if (strcmp(itemToPrint, "CRYSTAL") == 0){
-        // crystal
-    }
-    else if (strcmp(itemToPrint, "BLAZE") == 0){
-        // blaze brewer
-    }
-    else if (strcmp(itemToPrint, "CONQUERTRON") == 0){
-        // conquertron
-    }
-    else if (strcmp(itemToPrint, "DRAGONET") == 0){
-        // dragonet
-    }
-    else if (strcmp(itemToPrint, "D-RIVET") == 0){
-        // d-rivet
-    }
 }
 
 void enterPiece(int x, int y){
