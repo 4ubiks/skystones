@@ -49,7 +49,7 @@ int main(){
     boardPieces = initializeBoard(boardPieces);
 
     struct Pieces deckPieces;
-    deckPieces = initializeDeckPieces(deckPieces);
+    deckPieces = initializeSpikes(deckPieces);
 
     // GRID selection initalization
     WINDOW *gridSelection = newwin(13, 21, 9, 54);
@@ -196,7 +196,7 @@ int main(){
 
         piece_number = calculateCellNumber(grid_x, grid_y);
         setPiece(&boardPieces, piece_number, turn);
-
+        
         printBoardPieces(boardPieces, turn, piecePlayedString, &deckPieces);
         turn = toggleTurn(turn);
         
