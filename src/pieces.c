@@ -201,45 +201,49 @@ pieces = (struct Pieces){
         }
     };
 
-    char GRENADE_GENERAL_A = 0;
-    char GRENADE_GENERAL_B = 2;
-    char GRENADE_GENERAL_C = 0;
-    char GRENADE_GENERAL_D = 2;
+    return pieces;
+}
 
-    char ARKEYAN_BOMBER_A = 2;
-    char ARKEYAN_BOMBER_B = 2;
-    char ARKEYAN_BOMBER_C = 2;
-    char ARKEYAN_BOMBER_D = 0;
+struct Pieces initializeSpikes(struct Pieces pieces){
+    pieces.GRENADE_GENERAL_A = "0";
+    pieces.GRENADE_GENERAL_B = "2";
+    pieces.GRENADE_GENERAL_C = "0";
+    pieces.GRENADE_GENERAL_D = "2";
 
-    char ROOT_RUNNER_A = 1;
-    char ROOT_RUNNER_B = 2;
-    char ROOT_RUNNER_C = 3;
-    char ROOT_RUNNER_D = 2;
+    pieces.ARKEYAN_BOMBER_A = "2";
+    pieces.ARKEYAN_BOMBER_B = "2";
+    pieces.ARKEYAN_BOMBER_C = "2";
+    pieces.ARKEYAN_BOMBER_D = "0";
 
-    char CRYSTAL_GOLEM_A = 3;
-    char CRYSTAL_GOLEM_B = 3;
-    char CRYSTAL_GOLEM_C = 0;
-    char CRYSTAL_GOLEM_D = 0;
+    pieces.ROOT_RUNNER_A = "1";
+    pieces.ROOT_RUNNER_B = "2";
+    pieces.ROOT_RUNNER_C = "3";
+    pieces.ROOT_RUNNER_D = "2";
 
-    char BLAZE_BREWER_A = 2;
-    char BLAZE_BREWER_B = 0;
-    char BLAZE_BREWER_C = 0;
-    char BLAZE_BREWER_D = 2;
+    pieces.CRYSTAL_GOLEM_A = "3";
+    pieces.CRYSTAL_GOLEM_B = "3";
+    pieces.CRYSTAL_GOLEM_C = "0";
+    pieces.CRYSTAL_GOLEM_D = "0";
 
-    char CONQUERTRON_A = 4;
-    char CONQUERTRON_B = 4;
-    char CONQUERTRON_C = 4;
-    char CONQUERTRON_D = 4;
+    pieces.BLAZE_BREWER_A = "2";
+    pieces.BLAZE_BREWER_B = "0";
+    pieces.BLAZE_BREWER_C = "0";
+    pieces.BLAZE_BREWER_D = "2";
 
-    char DRAGONET_A = 1;
-    char DRAGONET_B = 2;
-    char DRAGONET_C = 1;
-    char DRAGONET_D = 2;
+    pieces.CONQUERTRON_A = "4";
+    pieces.CONQUERTRON_B = "4";
+    pieces.CONQUERTRON_C = "4";
+    pieces.CONQUERTRON_D = "4";
 
-    char D_RIVETER_A = 2;
-    char D_RIVETER_B = 0;
-    char D_RIVETER_C = 2;
-    char D_RIVETER_D = 0;
+    pieces.DRAGONET_A = "1";
+    pieces.DRAGONET_B = "2";
+    pieces.DRAGONET_C = "1";
+    pieces.DRAGONET_D = "2";
+
+    pieces.D_RIVETER_A = "2";
+    pieces.D_RIVETER_B = "0";
+    pieces.D_RIVETER_C = "2";
+    pieces.D_RIVETER_D = "0";
 
     return pieces;
 }
