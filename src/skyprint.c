@@ -81,11 +81,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
 
     piecesPlayed[pieceNumber] = piecePlayed;
 
-    // piece spike numbers
-
-    // if the piece has not been played yet, assign it
-
-
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
             pieceBoardArray[piece_count] = newwin(15, 25, tmp_y, tmp_x);
@@ -94,7 +89,11 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
                 assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
                 selectPlayerColor(pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
 
-                selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count]);
+                mvwprintw(stdscr, 15, 15, "%s", piecesPlayed[piece_count]);
+
+                if (piecesPlayed[piece_count] != NULL){
+                    selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count]);
+                }
 
                 refresh();
                 wrefresh(pieceBoardArray[piece_count]);
