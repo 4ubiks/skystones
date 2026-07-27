@@ -123,28 +123,28 @@ void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece){
 char* setDeckPieceName(int selectedPiece){
     switch (selectedPiece){
         case GRENADE_GENERAL:
-            return "Grenade General";
+            return "Grenade General\0";
 
         case ARKEYAN_BOMBER:
-            return "Arkeyan Bomber";
+            return "Arkeyan Bomber\0";
 
         case ROOT_RUNNER:
-            return "Root Runner";
+            return "Root Runner\0";
 
         case CRYSTAL_GOLEM:
-            return "Crystal Golem";
+            return "Crystal Golem\0";
 
         case BLAZE_BREWER:
-            return "Blaze Brewer";
+            return "Blaze Brewer\0";
 
         case CONQUERTRON:
-            return "Conquertron";
+            return "Conquertron\0";
 
         case DRAGONET:
-            return "Dragonet";
+            return "Dragonet\0";
 
         case D_RIVETER:
-            return "D-Riveter";
+            return "D-Riveter\0";
         
         case PIECE_PLAYED:
             return 0x0;
