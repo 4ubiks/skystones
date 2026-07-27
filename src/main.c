@@ -81,7 +81,7 @@ int main(){
     int piece_number = 0;
     int deck_piece_played=0;
     char piecePlayed = OPEN;
-    char* piecePlayedString = "DEFAULT";
+    char* piecePlayedString = "DEFAULT\0";
 
     // when `turn` is positive, player 1's turn. otherwise, p2's turn.
     int turn = 1;
