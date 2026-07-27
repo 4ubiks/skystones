@@ -5,5 +5,9 @@ run:
 clean:
 	rm skystones
 
+debug:
+	gcc -o skystones main.c skyprint.c skyinit.c skyfuncs.c pieces.c -lncurses
+	lldb-server gdbserver :1234 ./skystones
+
 default:
 	run
