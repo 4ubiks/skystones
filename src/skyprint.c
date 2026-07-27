@@ -57,7 +57,7 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boardPieceCharacteristics){
+void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boardPieceCharacteristics, int pieceNumber){
     int tmp_x = 52;
     int tmp_y = 8;
 
@@ -72,13 +72,19 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
     */
 
     WINDOW* pieceBoardArray[9];
+    char* piecesPlayed[9];
 
     int piece_count = 0;
 
     int x=0;
     int y=0;
 
+    piecesPlayed[pieceNumber] = piecePlayed;
+
     // piece spike numbers
+
+    // if the piece has not been played yet, assign it
+
 
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
@@ -88,11 +94,12 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
                 assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
                 selectPlayerColor(pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
 
-                selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecePlayed);
+                selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count]);
 
                 refresh();
                 wrefresh(pieceBoardArray[piece_count]);
             }
+
             piece_count++;
             tmp_x+=50;
             x++;
