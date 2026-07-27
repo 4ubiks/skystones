@@ -161,6 +161,7 @@ void assignPieceNames(struct Pieces *boardPieces, int thePieceNumberPlayed, char
 }
 
 void selectPieceNumbers(WINDOW* pieceWindow, struct Pieces *pieces, char* piecePlayed){
+    mvwprintw(stdscr, 13, 15, "are we crashed");
     if (strcmp(piecePlayed, "Grenade General") == 0){
         mvwprintw(pieceWindow, 7, 8, "%s", pieces->GRENADE_GENERAL_A);
         mvwprintw(pieceWindow, 8, 10, "%s", pieces->GRENADE_GENERAL_B);
@@ -215,6 +216,8 @@ void selectPieceNumbers(WINDOW* pieceWindow, struct Pieces *pieces, char* pieceP
         mvwprintw(pieceWindow, 8, 6, "0");
         mvwprintw(pieceWindow, 9, 8, "0");
     }
+
+    mvwprintw(stdscr, 11, 15, "not yet...");
 
     refresh();
     wrefresh(pieceWindow);
