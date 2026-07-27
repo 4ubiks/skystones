@@ -72,13 +72,14 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
     */
 
     WINDOW* pieceBoardArray[9];
-    char* piecesPlayed[9];
+    char* piecesPlayed[20];
 
     int piece_count = 0;
 
     int x=0;
     int y=0;
 
+    mvwprintw(stdscr, 12, 25, "size: %zu", strlen(piecePlayed));
     piecesPlayed[pieceNumber] = piecePlayed;
 
     for (int piece_row=0; piece_row<3; piece_row++){
@@ -89,9 +90,9 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
                 assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
                 selectPlayerColor(pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
 
-                mvwprintw(stdscr, 15, 15, "%s", piecesPlayed[piece_count]);
 
                 if (piecesPlayed[piece_count] != NULL){
+                    mvwprintw(stdscr, 14, 25, "size: %s", piecesPlayed[piece_count]);
                     selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count]);
                 }
 
