@@ -72,7 +72,7 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
     */
 
     WINDOW* pieceBoardArray[9];
-    char* piecesPlayed[20];
+    char* piecesPlayed[20] = {"Default\0"};
 
     int piece_count = 0;
 
@@ -90,9 +90,8 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
                 assignPieceNames(boardPieceCharacteristics, (piece_row*3)+piece_col, piecePlayed);
                 selectPlayerColor(pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
 
-
-                if (piecesPlayed[piece_count] != NULL){
-                    mvwprintw(stdscr, 14, 25, "size: %s", piecesPlayed[piece_count]);
+                // ensure piecesPlayed[piece_count] exists, AND if it's been assigned
+                if (piecesPlayed[piece_count] != NULL && strcmp(piecesPlayed[piece_count], "Default\0") != 0){
                     selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count]);
                 }
 
