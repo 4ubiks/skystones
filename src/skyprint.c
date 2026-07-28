@@ -61,7 +61,10 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
     int tmp_x = 52;
     int tmp_y = 8;
 
+    // Player 1
     init_pair(2, COLOR_RED, COLOR_BLACK);
+
+    // Player 2
     init_pair(3, COLOR_BLUE, COLOR_BLACK);
 
     /*
