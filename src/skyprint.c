@@ -82,7 +82,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
     int x=0;
     int y=0;
 
-    mvwprintw(stdscr, 12, 25, "size: %zu", strlen(piecePlayed));
     piecesPlayed[pieceNumber] = piecePlayed;
 
     for (int piece_row=0; piece_row<3; piece_row++){
