@@ -188,7 +188,7 @@ int main(){
             mvwprintw(stdscr, 28, 102, "game over");
         }
 
-            mvwprintw(stdscr, 5, 5, "Player 1 points: %d", p1.points);
+        mvwprintw(stdscr, 5, 5, "Player 1 points: %d", p1.points);
 
         if (turn < 0){
             p1.points = playerScore(boardPieces);
