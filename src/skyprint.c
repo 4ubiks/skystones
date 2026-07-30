@@ -111,11 +111,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
     }
 }
 
-// prints individual piece information (name, graphic, spikes)
-void printBoardPieceContent(struct Board board){
-    
-}
-
 void printPieceCoordinates(int grid_x, int grid_y){
     mvwprintw(stdscr, 10, 10, "(%d, ", grid_x);
     mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
