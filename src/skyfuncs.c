@@ -64,8 +64,6 @@ void selectPlayerColor(WINDOW* newPieceWindow1, struct Board board, int piece_co
     
     wborder(newPieceWindow1, '<', '>', 206, 206, '+', '+', '+', '+');
     mvwprintw(newPieceWindow1, 5, 5, piecePlayed);
-    // refresh();
-    // wrefresh(newPieceWindow1);
 }
 
 int playerScore(struct Board board){
