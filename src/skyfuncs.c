@@ -6,6 +6,7 @@
 #include "board.h"
 #include "constants.h"
 #include "pieceInfo.h"
+#include "pieceSpikes.h"
 #include "player.h"
 #include "skyfuncs.h"
 #include "skyinit.h"
@@ -158,62 +159,104 @@ void assignPieceNames(struct PieceInfo *boardPieceInfo, int thePieceNumberPlayed
     }
 }
 
-void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* piecePlayed){
+void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* piecePlayed, int spikes[4]){
     if (strcmp(piecePlayed, "Grenade General") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->GRENADE_GENERAL_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->GRENADE_GENERAL_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->GRENADE_GENERAL_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->GRENADE_GENERAL_D);
+        spikes[0] = (int)pieces->GRENADE_GENERAL_A;
+        spikes[1] = (int)pieces->GRENADE_GENERAL_B;
+        spikes[2] = (int)pieces->GRENADE_GENERAL_C;
+        spikes[3] = (int)pieces->GRENADE_GENERAL_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->GRENADE_GENERAL_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->GRENADE_GENERAL_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->GRENADE_GENERAL_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->GRENADE_GENERAL_D);
     }
     else if (strcmp(piecePlayed, "Arkeyan Bomber") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->ARKEYAN_BOMBER_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->ARKEYAN_BOMBER_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->ARKEYAN_BOMBER_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->ARKEYAN_BOMBER_D);
+        spikes[0] = pieces->ARKEYAN_BOMBER_A;
+        spikes[1] = pieces->ARKEYAN_BOMBER_B;
+        spikes[2] = pieces->ARKEYAN_BOMBER_C;
+        spikes[3] = pieces->ARKEYAN_BOMBER_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->ARKEYAN_BOMBER_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->ARKEYAN_BOMBER_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->ARKEYAN_BOMBER_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->ARKEYAN_BOMBER_D);
     }
     else if (strcmp(piecePlayed, "Root Runner") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->ROOT_RUNNER_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->ROOT_RUNNER_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->ROOT_RUNNER_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->ROOT_RUNNER_D);
+        spikes[0] = pieces->ROOT_RUNNER_A;
+        spikes[1] = pieces->ROOT_RUNNER_B;
+        spikes[2] = pieces->ROOT_RUNNER_C;
+        spikes[3] = pieces->ROOT_RUNNER_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->ROOT_RUNNER_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->ROOT_RUNNER_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->ROOT_RUNNER_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->ROOT_RUNNER_D);
     }
     else if (strcmp(piecePlayed, "Crystal Golem") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->CRYSTAL_GOLEM_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->CRYSTAL_GOLEM_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->CRYSTAL_GOLEM_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->CRYSTAL_GOLEM_D);
+        spikes[0] = pieces->CRYSTAL_GOLEM_A;
+        spikes[1] = pieces->CRYSTAL_GOLEM_B;
+        spikes[2] = pieces->CRYSTAL_GOLEM_C;
+        spikes[3] = pieces->CRYSTAL_GOLEM_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->CRYSTAL_GOLEM_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->CRYSTAL_GOLEM_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->CRYSTAL_GOLEM_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->CRYSTAL_GOLEM_D);
     }
     else if (strcmp(piecePlayed, "Blaze Brewer") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->BLAZE_BREWER_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->BLAZE_BREWER_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->BLAZE_BREWER_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->BLAZE_BREWER_D);
+        spikes[0] = pieces->BLAZE_BREWER_A;
+        spikes[1] = pieces->BLAZE_BREWER_B;
+        spikes[2] = pieces->BLAZE_BREWER_C;
+        spikes[3] = pieces->BLAZE_BREWER_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->BLAZE_BREWER_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->BLAZE_BREWER_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->BLAZE_BREWER_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->BLAZE_BREWER_D);
     }
     else if (strcmp(piecePlayed, "Conquertron") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->CONQUERTRON_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->CONQUERTRON_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->CONQUERTRON_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->CONQUERTRON_D);
+        spikes[0] = pieces->CONQUERTRON_A;
+        spikes[1] = pieces->CONQUERTRON_B;
+        spikes[2] = pieces->CONQUERTRON_C;
+        spikes[3] = pieces->CONQUERTRON_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->CONQUERTRON_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->CONQUERTRON_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->CONQUERTRON_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->CONQUERTRON_D);
     }
     else if (strcmp(piecePlayed, "Dragonet") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->DRAGONET_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->DRAGONET_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->DRAGONET_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->DRAGONET_D);
+        spikes[0] = pieces->DRAGONET_A;
+        spikes[1] = pieces->DRAGONET_B;
+        spikes[2] = pieces->DRAGONET_C;
+        spikes[3] = pieces->DRAGONET_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->DRAGONET_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->DRAGONET_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->DRAGONET_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->DRAGONET_D);
     }
     else if (strcmp(piecePlayed, "D-Riveter") == 0){
-        mvwprintw(pieceWindow, 7, 8, "%s", pieces->D_RIVETER_A);
-        mvwprintw(pieceWindow, 8, 10, "%s", pieces->D_RIVETER_B);
-        mvwprintw(pieceWindow, 9, 8, "%s", pieces->D_RIVETER_C);
-        mvwprintw(pieceWindow, 8, 6, "%s", pieces->D_RIVETER_D);
+        spikes[0] = pieces->D_RIVETER_A;
+        spikes[1] = pieces->D_RIVETER_B;
+        spikes[2] = pieces->D_RIVETER_C;
+        spikes[3] = pieces->D_RIVETER_D;
+
+        // mvwprintw(pieceWindow, 7, 8, "%s", pieces->D_RIVETER_A);
+        // mvwprintw(pieceWindow, 8, 10, "%s", pieces->D_RIVETER_B);
+        // mvwprintw(pieceWindow, 9, 8, "%s", pieces->D_RIVETER_C);
+        // mvwprintw(pieceWindow, 8, 6, "%s", pieces->D_RIVETER_D);
     }
     else {
-        mvwprintw(pieceWindow, 7, 8, "0");
-        mvwprintw(pieceWindow, 8, 10, "0");
-        mvwprintw(pieceWindow, 8, 6, "0");
-        mvwprintw(pieceWindow, 9, 8, "0");
-    }
+        spikes[0] = 0;
+        spikes[1] = 0;
+        spikes[2] = 0; 
+        spikes[3] = 0;
 
-    refresh();
-    wrefresh(pieceWindow);
+        // mvwprintw(pieceWindow, 7, 8, "0");
+        // mvwprintw(pieceWindow, 8, 10, "0");
+        // mvwprintw(pieceWindow, 8, 6, "0");
+        // mvwprintw(pieceWindow, 9, 8, "0");
+    }
 }
