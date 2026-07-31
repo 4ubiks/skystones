@@ -5,6 +5,7 @@
 // Custom files
 #include "constants.h"
 #include "pieceInfo.h"
+#include "pieceSpikes.h"
 #include "player.h"
 #include "board.h"
 #include "stone.h"
@@ -47,6 +48,14 @@ int main(){
 
     struct Board boardPieces;
     boardPieces = initializeBoard(boardPieces);
+
+    // Initialize spike counts and numbers
+    struct PieceSpikes pieceSpikes[9];
+    for (int i=0; i<9; i++){
+        for (int j=0; j<4; j++){
+            pieceSpikes[i].spikes[j] = 0;
+        }
+    }
 
     struct PieceInfo deckPieces;
     deckPieces = initializeSpikes(deckPieces);
@@ -197,7 +206,7 @@ int main(){
         piece_number = calculateCellNumber(grid_x, grid_y);
         setPiece(&boardPieces, piece_number, turn);
         
-        printBoardPieces(boardPieces, piecePlayedString, &deckPieces, piece_number);
+        printBoardPieces(boardPieces, piecePlayedString, &deckPieces, piece_number, pieceSpikes);
         turn = toggleTurn(turn);
         
     }
