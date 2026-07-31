@@ -7,6 +7,7 @@
 #include "player.h"
 #include "constants.h"
 #include "pieceInfo.h"
+#include "pieceSpikes.h"
 #include "board.h"
 #include "skyprint.h"
 #include "skyfuncs.h"
@@ -57,7 +58,7 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *boardPieceCharacteristics, int pieceNumber){
+void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *boardPieceCharacteristics, int pieceNumber, struct PieceSpikes *pieceSpikes[9]){
     int tmp_x = 52;
     int tmp_y = 8;
 
@@ -80,7 +81,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
             print(spikes)
         }
     }
-
     */
 
     WINDOW* pieceBoardArray[9];
@@ -103,7 +103,7 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
 
                 // ensure piecesPlayed[piece_count] exists, AND if it's been assigned
                 if (piecesPlayed[piece_count] != NULL){
-                    selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count]);
+                    selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count], pieceSpikes[piece_count]->spikes);
                 }
 
                 refresh();
@@ -118,6 +118,17 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
         tmp_y+=20;
         y++;
     }
+
+    // print spikes
+    for (int structPieceCounter=0; structPieceCounter<9; structPieceCounter++){
+        for (int pieceSpikeCounter=0; pieceSpikeCounter<4; pieceSpikeCounter++){
+            mvwprintw(pieceBoardArray[structPieceCounter], 7, 8, "%s", pieceSpikes[structPieceCounter]->spikes[pieceSpikeCounter]);  
+
+            refresh();
+            wrefresh(pieceBoardArray[structPieceCounter]);
+        }
+    }
+
 }
 
 void printPieceCoordinates(int grid_x, int grid_y){
