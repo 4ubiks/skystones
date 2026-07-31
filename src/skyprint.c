@@ -58,7 +58,7 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *boardPieceCharacteristics, int pieceNumber, struct PieceSpikes *pieceSpikes[9]){
+void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *boardPieceCharacteristics, int pieceNumber, struct PieceSpikes pieceSpikes[]){
     int tmp_x = 52;
     int tmp_y = 8;
 
@@ -103,7 +103,7 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
 
                 // ensure piecesPlayed[piece_count] exists, AND if it's been assigned
                 if (piecesPlayed[piece_count] != NULL){
-                    selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count], pieceSpikes[piece_count]->spikes);
+                    selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count], pieceSpikes[piece_count].spikes);
                 }
 
                 refresh();
@@ -121,12 +121,16 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
 
     // print spikes
     for (int structPieceCounter=0; structPieceCounter<9; structPieceCounter++){
-        for (int pieceSpikeCounter=0; pieceSpikeCounter<4; pieceSpikeCounter++){
-            mvwprintw(pieceBoardArray[structPieceCounter], 7, 8, "%s", pieceSpikes[structPieceCounter]->spikes[pieceSpikeCounter]);  
+        if (board.boardPieceIsPresent[structPieceCounter] == '1'){
+            mvwprintw(pieceBoardArray[structPieceCounter], 7, 8, "%d", pieceSpikes[structPieceCounter].spikes[0]); 
+            mvwprintw(pieceBoardArray[structPieceCounter], 8, 10, "%d", pieceSpikes[structPieceCounter].spikes[1]);
+            mvwprintw(pieceBoardArray[structPieceCounter], 9, 8, "%d", pieceSpikes[structPieceCounter].spikes[2]);
+            mvwprintw(pieceBoardArray[structPieceCounter], 8, 6, "%d", pieceSpikes[structPieceCounter].spikes[3]);
 
             refresh();
             wrefresh(pieceBoardArray[structPieceCounter]);
         }
+    
     }
 
 }
