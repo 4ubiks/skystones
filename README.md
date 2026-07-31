@@ -14,6 +14,7 @@ main.c
 --> ncurses.h
 --> constants.h
 --> pieceInfo.h
+--> pieceSpikes.h
 --> player.h
 --> board.h
 --> stone.h
@@ -30,6 +31,7 @@ skyfuncs.c
 --> board.h
 --> constants.h
 --> pieceInfo.h
+--> pieceSpikes.h
 --> player.h
 --> skyfuncs.h
 --> skyinit.h
@@ -47,6 +49,7 @@ skyprint.c
 --> player.h
 --> constants.h
 --> pieceInfo.h
+--> pieceSpikes.h
 --> board.h
 --> skyprint.h
 --> skyfuncs.h
