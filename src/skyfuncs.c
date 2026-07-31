@@ -159,12 +159,12 @@ void assignPieceNames(struct PieceInfo *boardPieceInfo, int thePieceNumberPlayed
     }
 }
 
-void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* piecePlayed, int spikes[4]){
+void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* piecePlayed, int spikes[]){
     if (strcmp(piecePlayed, "Grenade General") == 0){
-        spikes[0] = (int)pieces->GRENADE_GENERAL_A;
-        spikes[1] = (int)pieces->GRENADE_GENERAL_B;
-        spikes[2] = (int)pieces->GRENADE_GENERAL_C;
-        spikes[3] = (int)pieces->GRENADE_GENERAL_D;
+        spikes[0] = pieces->GRENADE_GENERAL_A;
+        spikes[1] = pieces->GRENADE_GENERAL_B;
+        spikes[2] = pieces->GRENADE_GENERAL_C;
+        spikes[3] = pieces->GRENADE_GENERAL_D;
 
         // mvwprintw(pieceWindow, 7, 8, "%s", pieces->GRENADE_GENERAL_A);
         // mvwprintw(pieceWindow, 8, 10, "%s", pieces->GRENADE_GENERAL_B);
