@@ -10,7 +10,10 @@ Use 'A/D' keys to select your next stone to play.
 This is the include breakdown, just to help avoid include loops
 ```
 main.c
+--> stdio.h
+--> ncurses.h
 --> constants.h
+--> pieceInfo.h
 --> player.h
 --> board.h
 --> stone.h
@@ -18,21 +21,34 @@ main.c
 --> skyinit.h
 --> skyfuncs.h
 
-skyinit.c
+pieceInfo.c
+--> pieceInfo.h
+
+skyfuncs.c
+--> ncurses.h
+--> string.h
+--> board.h
+--> constants.h
+--> pieceInfo.h
+--> player.h
+--> skyfuncs.h
 --> skyinit.h
+
+skyinit.c
 --> constants.h
 --> player.h
 --> board.h
+--> skyinit.h
 
 skyprint.c
+--> stdio.h
+--> string.h
+--> ncurses.h
 --> player.h
+--> constants.h
+--> pieceInfo.h
 --> board.h
 --> skyprint.h
 --> skyfuncs.h
-
-skyfuncs.c
---> board.h
---> skyfuncs.h
---> skyinit.h
 
 ```
