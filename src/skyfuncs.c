@@ -151,14 +151,14 @@ char* setDeckPieceName(int selectedPiece){
     return 0;
 }
 
-void assignPieceNames(struct Pieces *boardPieces, int thePieceNumberPlayed, char* pieceName){
-    if (boardPieces->pieceAssignment[thePieceNumberPlayed] != 1){
-        boardPieces->pieces[thePieceNumberPlayed] = pieceName;
-        boardPieces->pieceAssignment[thePieceNumberPlayed] = 1;
+void assignPieceNames(struct PieceInfo *boardPieceInfo, int thePieceNumberPlayed, char* pieceName){
+    if (boardPieceInfo->pieceAssignment[thePieceNumberPlayed] != 1){
+        boardPieceInfo->pieces[thePieceNumberPlayed] = pieceName;
+        boardPieceInfo->pieceAssignment[thePieceNumberPlayed] = 1;
     }
 }
 
-void selectPieceNumbers(WINDOW* pieceWindow, struct Pieces *pieces, char* piecePlayed){
+void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* piecePlayed){
     if (strcmp(piecePlayed, "Grenade General") == 0){
         mvwprintw(pieceWindow, 7, 8, "%s", pieces->GRENADE_GENERAL_A);
         mvwprintw(pieceWindow, 8, 10, "%s", pieces->GRENADE_GENERAL_B);

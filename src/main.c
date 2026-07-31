@@ -48,7 +48,7 @@ int main(){
     struct Board boardPieces;
     boardPieces = initializeBoard(boardPieces);
 
-    struct Pieces deckPieces;
+    struct PieceInfo deckPieces;
     deckPieces = initializeSpikes(deckPieces);
 
     // GRID selection initalization

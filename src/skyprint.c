@@ -57,7 +57,7 @@ void printBlankBoard(){
 }
 
 // prints all entries where a piece exists
-void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boardPieceCharacteristics, int pieceNumber){
+void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *boardPieceCharacteristics, int pieceNumber){
     int tmp_x = 52;
     int tmp_y = 8;
 
