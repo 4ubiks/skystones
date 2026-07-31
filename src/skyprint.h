@@ -1,6 +1,6 @@
 void printBlankBoard();
 
-void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *boardPieceCharacteristics, int pieceNumber, struct PieceSpikes *pieceSpikes[9]);
+void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *boardPieceCharacteristics, int pieceNumber, struct PieceSpikes pieceSpikes[]);
 
 void printPieceCoordinates(int grid_x, int grid_y);
 
