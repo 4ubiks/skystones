@@ -1,4 +1,4 @@
-#include "pieces.h"
+#include "pieceInfo.h"
 
 struct Pieces initializeDeckPieces(struct Pieces pieces){
     pieces = (struct Pieces){

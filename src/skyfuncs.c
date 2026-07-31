@@ -5,7 +5,7 @@
 // custom includes
 #include "board.h"
 #include "constants.h"
-#include "pieces.h"
+#include "pieceInfo.h"
 #include "player.h"
 #include "skyfuncs.h"
 #include "skyinit.h"

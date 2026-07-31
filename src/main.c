@@ -4,7 +4,7 @@
 
 // Custom files
 #include "constants.h"
-#include "pieces.h"
+#include "pieceInfo.h"
 #include "player.h"
 #include "board.h"
 #include "stone.h"

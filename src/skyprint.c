@@ -6,7 +6,7 @@
 // custom files
 #include "player.h"
 #include "constants.h"
-#include "pieces.h"
+#include "pieceInfo.h"
 #include "board.h"
 #include "skyprint.h"
 #include "skyfuncs.h"
@@ -72,6 +72,15 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
 
     Action is called nine times. Each function call increments the x, y coordinates to create each WINDOW* object in a different location. 
     
+    pieceArray[9]
+    -> spikeArray[4]
+
+    for (all pieceArray elemnts){
+        for (all spikeArray elements){
+            print(spikes)
+        }
+    }
+
     */
 
     WINDOW* pieceBoardArray[9];
@@ -82,7 +91,7 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
     int x=0;
     int y=0;
 
-    piecesPlayed[pieceNumber] = piecePlayed;
+    piecesPlayed[pieceNumber] = piecePlayed; 
 
     for (int piece_row=0; piece_row<3; piece_row++){
         for (int piece_col=0; piece_col<3; piece_col++){
@@ -93,7 +102,7 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct Pieces *boar
                 selectPlayerColor(pieceBoardArray[piece_count], board, piece_count, boardPieceCharacteristics->pieces[piece_count]);
 
                 // ensure piecesPlayed[piece_count] exists, AND if it's been assigned
-                if (piecesPlayed[piece_count] != NULL && strcmp(piecesPlayed[piece_count], "Default\0") != 0){
+                if (piecesPlayed[piece_count] != NULL){
                     selectPieceNumbers(pieceBoardArray[piece_count], boardPieceCharacteristics, piecesPlayed[piece_count]);
                 }
 
