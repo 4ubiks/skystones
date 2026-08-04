@@ -78,42 +78,74 @@ int playerScore(struct Board board){
     return tmpScore;
 }
 
-void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece){
+void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece, struct PieceInfo pieceSpikeInfo){
     switch (deckPiece){
         case GRENADE_GENERAL:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "GRENADE");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_D);
             break;
 
         case ARKEYAN_BOMBER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "ARKEYAN");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_D);
             break;
 
         case ROOT_RUNNER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "ROOT");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.ROOT_RUNNER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.ROOT_RUNNER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.ROOT_RUNNER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.ROOT_RUNNER_D);
             break;
 
         case CRYSTAL_GOLEM:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "CRYSTAL");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_D);
             break;
 
         case BLAZE_BREWER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "BLAZE");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.BLAZE_BREWER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.BLAZE_BREWER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.BLAZE_BREWER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.BLAZE_BREWER_D);
             break;
 
         case CONQUERTRON:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "CONQUERTRON");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.CONQUERTRON_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.CONQUERTRON_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.CONQUERTRON_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.CONQUERTRON_D);
             break;
 
         case DRAGONET:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "DRAGONET");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.DRAGONET_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.DRAGONET_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.DRAGONET_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.DRAGONET_D);
             break;
 
         case D_RIVETER:
             mvwprintw(currentPieceWindow, deckWall+2, 2, "D-RIVET");
+            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.D_RIVETER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.D_RIVETER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.D_RIVETER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.D_RIVETER_D);
             break;
         
-            case PIECE_PLAYED:
-                break;
+        case PIECE_PLAYED:
+            break;
 
 
     }
@@ -238,109 +270,178 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
             // if playedPiece bigger than existing adjacent, flip adjacent's ownership
 
             // check 
+            // pieceSpikes[0].spikes[1]; 
+            // pieceSpikes[1].spikes[3];
             if (checkPieceExists(boardPieces->boardPieceIsPresent[1]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[1])){
                 // compare
                 comparePieces(pieceNum, 1, pieceSpikes[pieceNum].spikes[1], pieceSpikes[1].spikes[3], boardPieces);
             }
+
+            // pieceSpikes[0].spikes[2];
+            // pieceSpikes[3].spikes[0];
             else if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
                 // compare
                 comparePieces(pieceNum, 3, pieceSpikes[pieceNum].spikes[2], pieceSpikes[3].spikes[0], boardPieces);
             }
-            else   
-                break;
 
-            
-            
-
-
-
-            // pieceSpikes[0].spikes[1]; 
-            // pieceSpikes[1].spikes[3];
-
-            // pieceSpikes[0].spikes[2];
-            // pieceSpikes[3].spikes[0];
             break;
         
         case 1:
+
+        // check 
             // pieceSpikes[1].spikes[3];
             // pieceSpikes[0].spikes[1];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[0]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[0])){
+                // compare
+                comparePieces(pieceNum, 0, pieceSpikes[pieceNum].spikes[3], pieceSpikes[0].spikes[1], boardPieces);
+            }
 
             // pieceSpikes[1].spikes[2];
             // pieceSpikes[4].spikes[0];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
+                // compare
+                comparePieces(pieceNum, 4, pieceSpikes[pieceNum].spikes[2], pieceSpikes[4].spikes[0], boardPieces);
+            }
 
             // pieceSpikes[1].spikes[1];
             // pieceSpikes[2].spikes[3];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[2]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[2])){
+                // compare
+                comparePieces(pieceNum, 2, pieceSpikes[pieceNum].spikes[1], pieceSpikes[2].spikes[3], boardPieces);
+            }
+
             break;
 
         case 2:
             // pieceSpikes[2].spikes[3];
             // pieceSpikes[1].spikes[1];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[1]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[1])){
+                comparePieces(pieceNum, 1, pieceSpikes[pieceNum].spikes[3], pieceSpikes[1].spikes[1], boardPieces);
+            }
 
             // pieceSpikes[2].spikes[2];
             // pieceSpikes[5].spikes[0];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[5]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[5])){
+                comparePieces(pieceNum, 5, pieceSpikes[pieceNum].spikes[2], pieceSpikes[5].spikes[0], boardPieces);
+            }
+
             break;
 
         case 3:
             // pieceSpikes[3].spikes[0];
             // pieceSpikes[0].spikes[2];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[0]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[0])){
+                comparePieces(pieceNum, 0, pieceSpikes[pieceNum].spikes[0], pieceSpikes[0].spikes[2], boardPieces);
+            }
 
             // pieceSpikes[3].spikes[1];
             // pieceSpikes[4].spikes[3];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
+                comparePieces(pieceNum, 4, pieceSpikes[pieceNum].spikes[1], pieceSpikes[4].spikes[3], boardPieces);
+            }
 
             // pieceSpikes[3].spikes[2];
             // pieceSpikes[6].spikes[0];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[6]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[6])){
+                comparePieces(pieceNum, 6, pieceSpikes[pieceNum].spikes[2], pieceSpikes[6].spikes[0], boardPieces);
+            }
+
             break;
 
         case 4:
             // pieceSpikes[4].spikes[0];
             // pieceSpikes[1].spikes[2];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[1]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[1])){
+                comparePieces(pieceNum, 1, pieceSpikes[pieceNum].spikes[0], pieceSpikes[1].spikes[2], boardPieces);
+            }
 
             // pieceSpikes[4].spikes[1];
             // pieceSpikes[5].spikes[3];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[5]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[5])){
+                comparePieces(pieceNum, 5, pieceSpikes[pieceNum].spikes[1], pieceSpikes[5].spikes[3], boardPieces);
+            }
 
             // pieceSpikes[4].spikes[2];
             // pieceSpikes[7].spikes[0];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
+                comparePieces(pieceNum, 7, pieceSpikes[pieceNum].spikes[2], pieceSpikes[7].spikes[0], boardPieces);
+            }
 
             // pieceSpikes[4].spikes[3];
             // pieceSpikes[3].spikes[1];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
+                comparePieces(pieceNum, 3, pieceSpikes[pieceNum].spikes[3], pieceSpikes[3].spikes[1], boardPieces);
+            }
             break;
 
         case 5: 
             // pieceSpikes[5].spikes[0];
             // pieceSpikes[2].spikes[2];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[2]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[2])){
+                comparePieces(pieceNum, 2, pieceSpikes[pieceNum].spikes[0], pieceSpikes[2].spikes[2], boardPieces);
+            }
 
             // pieceSpikes[5].spikes[2];
             // pieceSpikes[8].spikes[0];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[8]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[8])){
+                comparePieces(pieceNum, 8, pieceSpikes[pieceNum].spikes[2], pieceSpikes[8].spikes[0], boardPieces);
+            }
 
             // pieceSpikes[5].spikes[3];
             // pieceSpikes[4].spikes[1];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
+                comparePieces(pieceNum, 4, pieceSpikes[pieceNum].spikes[3], pieceSpikes[4].spikes[1], boardPieces);
+            }
             break;
 
         case 6:
             // pieceSpikes[6].spikes[0];
             // pieceSpikes[3].spikes[2];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
+                comparePieces(pieceNum, 3, pieceSpikes[pieceNum].spikes[0], pieceSpikes[3].spikes[2], boardPieces);
+            }
 
             // pieceSpikes[6].spikes[1];
             // pieceSpikes[7].spikes[3];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
+                comparePieces(pieceNum, 7, pieceSpikes[pieceNum].spikes[1], pieceSpikes[7].spikes[3], boardPieces);
+            }
             break;
 
         case 7:
             // pieceSpikes[7].spikes[0];
             // pieceSpikes[4].spikes[2];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
+                comparePieces(pieceNum, 4, pieceSpikes[pieceNum].spikes[0], pieceSpikes[4].spikes[2], boardPieces);
+            }
 
             // pieceSpikes[7].spikes[1];
             // pieceSpikes[8].spikes[3];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[8]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[8])){
+                comparePieces(pieceNum, 8, pieceSpikes[pieceNum].spikes[1], pieceSpikes[8].spikes[3], boardPieces);
+            }
 
             // pieceSpikes[7].spikes[3];
             // pieceSpikes[6].spikes[1];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[6]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[6])){
+                comparePieces(pieceNum, 6, pieceSpikes[pieceNum].spikes[3], pieceSpikes[6].spikes[1], boardPieces);
+            }
+
             break;
 
         case 8:
             // pieceSpikes[8].spikes[0];
             // pieceSpikes[5].spikes[2];
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[5]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[5])){
+                comparePieces(pieceNum, 5, pieceSpikes[pieceNum].spikes[0], pieceSpikes[5].spikes[2], boardPieces);
+            }
 
             // pieceSpikes[8].spikes[3];
             // pieceSpikes[7].spikes[1];
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
+                comparePieces(pieceNum, 7, pieceSpikes[pieceNum].spikes[3], pieceSpikes[7].spikes[1], boardPieces);
+            }
+
             break;
 
         default:
@@ -349,7 +450,7 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 }
 
 bool checkPieceExists(int piecePlayed){
-    if (piecePlayed == 1){
+    if (piecePlayed == '1'){
         return true;
     }
 
@@ -357,6 +458,8 @@ bool checkPieceExists(int piecePlayed){
 }
 
 bool checkOppositePlayer(int playedPlayer, int targetPlayer){
+    mvwprintw(stdscr, 9, 10, "p1: %d", playedPlayer);
+    mvwprintw(stdscr, 11, 10, "p2: %d", targetPlayer);
     if (playedPlayer != targetPlayer) {
         return true;
     }
@@ -365,10 +468,15 @@ bool checkOppositePlayer(int playedPlayer, int targetPlayer){
 }
 
 int comparePieces(int pieceNumPlayed, int pieceNumAdj, int playedSpike, int adjacentSpike, struct Board *boardPieces){
+    mvwprintw(stdscr, DEBUG_Y, DEBUG_X, "inside comparePieces");
+    mvwprintw(stdscr, DEBUG_Y + 1, DEBUG_X, "playedSpike from piece %d: %d", pieceNumPlayed, playedSpike);
+    mvwprintw(stdscr, DEBUG_Y + 2, DEBUG_X, "adjacentSpike from piece %d: %d", pieceNumAdj, adjacentSpike);
     if (playedSpike > adjacentSpike){
         boardPieces->boardPiecePlayer[pieceNumAdj] = boardPieces->boardPiecePlayer[pieceNumPlayed];
-        mvwprintw(stdscr, 15, 15, "changed team bc winning");
+        mvwprintw(stdscr, DEBUG_Y+3, DEBUG_X, "changed team bc winning");
     }
+    else
+        mvwprintw(stdscr, DEBUG_Y + 3, DEBUG_X, "no change happening rn,");
 
     return 0;
 }
