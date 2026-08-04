@@ -27,3 +27,7 @@
 #define LOWER_LEFT_CORNER 0xbd
 
 #define BOARD_ICON_BOUND 0x12
+
+// misc debug constants
+#define DEBUG_Y 0x1e
+#define DEBUG_X 0xc0
