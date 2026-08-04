@@ -34,12 +34,10 @@ int calculateCellNumber(int x, int y){
 }
 
 char gameIsOver(struct Board *board){
-    for (int cell=0; cell<9; cell++){
-        if (board->piecesPlayed == 9){
-            return 1;
-        }
+    if (board->piecesPlayed == 17){
+        return '1';
     }
-    return 0;
+    return '0';
 }
 
 int toggleTurn(int turn){
@@ -263,11 +261,6 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
     switch (pieceNum){
         case 0:
-            // 
-            // checkPieceExists
-            // checkOppositePlayer
-            // checkValue
-            // if playedPiece bigger than existing adjacent, flip adjacent's ownership
 
             // check 
             // pieceSpikes[0].spikes[1]; 
@@ -279,7 +272,7 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[0].spikes[2];
             // pieceSpikes[3].spikes[0];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
                 // compare
                 comparePieces(pieceNum, 3, pieceSpikes[pieceNum].spikes[2], pieceSpikes[3].spikes[0], boardPieces);
             }
@@ -298,14 +291,14 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[1].spikes[2];
             // pieceSpikes[4].spikes[0];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
                 // compare
                 comparePieces(pieceNum, 4, pieceSpikes[pieceNum].spikes[2], pieceSpikes[4].spikes[0], boardPieces);
             }
 
             // pieceSpikes[1].spikes[1];
             // pieceSpikes[2].spikes[3];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[2]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[2])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[2]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[2])){
                 // compare
                 comparePieces(pieceNum, 2, pieceSpikes[pieceNum].spikes[1], pieceSpikes[2].spikes[3], boardPieces);
             }
@@ -321,7 +314,7 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[2].spikes[2];
             // pieceSpikes[5].spikes[0];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[5]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[5])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[5]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[5])){
                 comparePieces(pieceNum, 5, pieceSpikes[pieceNum].spikes[2], pieceSpikes[5].spikes[0], boardPieces);
             }
 
@@ -336,13 +329,13 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[3].spikes[1];
             // pieceSpikes[4].spikes[3];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
                 comparePieces(pieceNum, 4, pieceSpikes[pieceNum].spikes[1], pieceSpikes[4].spikes[3], boardPieces);
             }
 
             // pieceSpikes[3].spikes[2];
             // pieceSpikes[6].spikes[0];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[6]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[6])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[6]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[6])){
                 comparePieces(pieceNum, 6, pieceSpikes[pieceNum].spikes[2], pieceSpikes[6].spikes[0], boardPieces);
             }
 
@@ -357,19 +350,19 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[4].spikes[1];
             // pieceSpikes[5].spikes[3];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[5]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[5])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[5]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[5])){
                 comparePieces(pieceNum, 5, pieceSpikes[pieceNum].spikes[1], pieceSpikes[5].spikes[3], boardPieces);
             }
 
             // pieceSpikes[4].spikes[2];
             // pieceSpikes[7].spikes[0];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
                 comparePieces(pieceNum, 7, pieceSpikes[pieceNum].spikes[2], pieceSpikes[7].spikes[0], boardPieces);
             }
 
             // pieceSpikes[4].spikes[3];
             // pieceSpikes[3].spikes[1];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
                 comparePieces(pieceNum, 3, pieceSpikes[pieceNum].spikes[3], pieceSpikes[3].spikes[1], boardPieces);
             }
             break;
@@ -383,13 +376,13 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[5].spikes[2];
             // pieceSpikes[8].spikes[0];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[8]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[8])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[8]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[8])){
                 comparePieces(pieceNum, 8, pieceSpikes[pieceNum].spikes[2], pieceSpikes[8].spikes[0], boardPieces);
             }
 
             // pieceSpikes[5].spikes[3];
             // pieceSpikes[4].spikes[1];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[4]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[4])){
                 comparePieces(pieceNum, 4, pieceSpikes[pieceNum].spikes[3], pieceSpikes[4].spikes[1], boardPieces);
             }
             break;
@@ -403,7 +396,7 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[6].spikes[1];
             // pieceSpikes[7].spikes[3];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
                 comparePieces(pieceNum, 7, pieceSpikes[pieceNum].spikes[1], pieceSpikes[7].spikes[3], boardPieces);
             }
             break;
@@ -417,13 +410,13 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[7].spikes[1];
             // pieceSpikes[8].spikes[3];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[8]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[8])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[8]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[8])){
                 comparePieces(pieceNum, 8, pieceSpikes[pieceNum].spikes[1], pieceSpikes[8].spikes[3], boardPieces);
             }
 
             // pieceSpikes[7].spikes[3];
             // pieceSpikes[6].spikes[1];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[6]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[6])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[6]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[6])){
                 comparePieces(pieceNum, 6, pieceSpikes[pieceNum].spikes[3], pieceSpikes[6].spikes[1], boardPieces);
             }
 
@@ -438,7 +431,7 @@ void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *bo
 
             // pieceSpikes[8].spikes[3];
             // pieceSpikes[7].spikes[1];
-            else if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[7]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[7])){
                 comparePieces(pieceNum, 7, pieceSpikes[pieceNum].spikes[3], pieceSpikes[7].spikes[1], boardPieces);
             }
 
