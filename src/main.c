@@ -191,9 +191,12 @@ int main(){
 
         }
 
-        if (gameIsOver(&boardPieces)){
+        boardPieces.piecesPlayed++;
+
+        if (gameIsOver(&boardPieces) == '1'){
             timeout(-1);
             erase();
+            erasePieces();
             mvwprintw(stdscr, 28, 102, "game over");
         }
 
