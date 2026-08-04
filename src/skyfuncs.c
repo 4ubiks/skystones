@@ -216,11 +216,159 @@ void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* pie
     }
 }
 
-void checkPieces(int pieceNum, char* spikePieceArrays[]) {
+void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *boardPieces) {
     // checks adjacent pieces and their spike counts...
     // if pieceNum == 1 then 
         // check spikePieceArrays[1].spike[3] and spikePieceArrays[3].[0]
         // that's spike D on piece 2 and spike A on piece 4 respectively. 
 
     // legit i think the easiest way to do this is brute force because it's overall so minimal. 
+
+    // PLAYER 1: '1'
+    // PLAYER 2: '0'
+
+    int currentPlayer = boardPieces->boardPiecePlayer[pieceNum];
+
+    switch (pieceNum){
+        case 0:
+            // 
+            // checkPieceExists
+            // checkOppositePlayer
+            // checkValue
+            // if playedPiece bigger than existing adjacent, flip adjacent's ownership
+
+            // check 
+            if (checkPieceExists(boardPieces->boardPieceIsPresent[1]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[1])){
+                // compare
+                comparePieces(pieceNum, 1, pieceSpikes[pieceNum].spikes[1], pieceSpikes[1].spikes[3], boardPieces);
+            }
+            else if (checkPieceExists(boardPieces->boardPieceIsPresent[3]) && checkOppositePlayer(currentPlayer, boardPieces->boardPiecePlayer[3])){
+                // compare
+                comparePieces(pieceNum, 3, pieceSpikes[pieceNum].spikes[2], pieceSpikes[3].spikes[0], boardPieces);
+            }
+            else   
+                break;
+
+            
+            
+
+
+
+            // pieceSpikes[0].spikes[1]; 
+            // pieceSpikes[1].spikes[3];
+
+            // pieceSpikes[0].spikes[2];
+            // pieceSpikes[3].spikes[0];
+            break;
+        
+        case 1:
+            // pieceSpikes[1].spikes[3];
+            // pieceSpikes[0].spikes[1];
+
+            // pieceSpikes[1].spikes[2];
+            // pieceSpikes[4].spikes[0];
+
+            // pieceSpikes[1].spikes[1];
+            // pieceSpikes[2].spikes[3];
+            break;
+
+        case 2:
+            // pieceSpikes[2].spikes[3];
+            // pieceSpikes[1].spikes[1];
+
+            // pieceSpikes[2].spikes[2];
+            // pieceSpikes[5].spikes[0];
+            break;
+
+        case 3:
+            // pieceSpikes[3].spikes[0];
+            // pieceSpikes[0].spikes[2];
+
+            // pieceSpikes[3].spikes[1];
+            // pieceSpikes[4].spikes[3];
+
+            // pieceSpikes[3].spikes[2];
+            // pieceSpikes[6].spikes[0];
+            break;
+
+        case 4:
+            // pieceSpikes[4].spikes[0];
+            // pieceSpikes[1].spikes[2];
+
+            // pieceSpikes[4].spikes[1];
+            // pieceSpikes[5].spikes[3];
+
+            // pieceSpikes[4].spikes[2];
+            // pieceSpikes[7].spikes[0];
+
+            // pieceSpikes[4].spikes[3];
+            // pieceSpikes[3].spikes[1];
+            break;
+
+        case 5: 
+            // pieceSpikes[5].spikes[0];
+            // pieceSpikes[2].spikes[2];
+
+            // pieceSpikes[5].spikes[2];
+            // pieceSpikes[8].spikes[0];
+
+            // pieceSpikes[5].spikes[3];
+            // pieceSpikes[4].spikes[1];
+            break;
+
+        case 6:
+            // pieceSpikes[6].spikes[0];
+            // pieceSpikes[3].spikes[2];
+
+            // pieceSpikes[6].spikes[1];
+            // pieceSpikes[7].spikes[3];
+            break;
+
+        case 7:
+            // pieceSpikes[7].spikes[0];
+            // pieceSpikes[4].spikes[2];
+
+            // pieceSpikes[7].spikes[1];
+            // pieceSpikes[8].spikes[3];
+
+            // pieceSpikes[7].spikes[3];
+            // pieceSpikes[6].spikes[1];
+            break;
+
+        case 8:
+            // pieceSpikes[8].spikes[0];
+            // pieceSpikes[5].spikes[2];
+
+            // pieceSpikes[8].spikes[3];
+            // pieceSpikes[7].spikes[1];
+            break;
+
+        default:
+            break;
+    }
+}
+
+bool checkPieceExists(int piecePlayed){
+    if (piecePlayed == 1){
+        return true;
+    }
+
+    return false;
+}
+
+bool checkOppositePlayer(int playedPlayer, int targetPlayer){
+    if (playedPlayer != targetPlayer) {
+        return true;
+    }
+
+    return false;
+}
+
+int comparePieces(int pieceNumPlayed, int pieceNumAdj, int playedSpike, int adjacentSpike, struct Board *boardPieces){
+    if (playedSpike > adjacentSpike){
+        boardPieces->boardPiecePlayer[pieceNumAdj] = boardPieces->boardPiecePlayer[pieceNumPlayed];
+        mvwprintw(stdscr, 15, 15, "changed team bc winning");
+    }
+
+    return 0;
 }

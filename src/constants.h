@@ -15,6 +15,11 @@
 #define OPEN 0x0
 #define FULL 0x1
 
+// game logic
+#define GREATER 0xf
+#define LESS 0xa
+#define EQUAL 0xc
+
 // ascii graphics characters
 #define UPPER_RIGHT_CORNER 0xbb
 #define UPPER_LEFT_CORNER 0xc9

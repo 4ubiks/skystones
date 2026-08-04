@@ -133,6 +133,10 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
     
     }
 
+    for (int piecePlaced=0; piecePlaced<9; piecePlaced++){
+        checkPiece(piecePlaced, pieceSpikes, &board);
+    }
+
 }
 
 void printPieceCoordinates(int grid_x, int grid_y){

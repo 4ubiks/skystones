@@ -19,4 +19,10 @@ void assignPieceNames(struct PieceInfo *boardPieces, int thePieceNumberPlayed, c
 
 void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* piecePlayed, int spikes[]);
 
-void checkPieces(int pieceNum, char* spikePieceArrays[]);
+void checkPiece(int pieceNum, struct PieceSpikes pieceSpikes[], struct Board *boardPieces);
+
+bool checkPieceExists(int piecePlayed);
+
+bool checkOppositePlayer(int playedPlayer, int targetPlayer);
+
+int comparePieces(int pieceNumPlayed, int pieceNumAdj, int playedSpike, int adjacentSpike, struct Board *boardPieces);
