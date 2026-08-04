@@ -133,10 +133,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
     
     }
 
-    for (int piecePlaced=0; piecePlaced<9; piecePlaced++){
-        checkPiece(piecePlaced, pieceSpikes, &board);
-    }
-
 }
 
 void printPieceCoordinates(int grid_x, int grid_y){
@@ -144,14 +140,14 @@ void printPieceCoordinates(int grid_x, int grid_y){
     mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
 }
 
-void printPlayerDeck(struct Player player){
+void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo) {
 
     WINDOW* playerDeckBorder = newwin(56, 20, 8, 10);
     wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
     int deckPiece=0;
     for (int deckWall=0; deckWall < 55; deckWall+=11){
         mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
-        pickDeckSkystone(playerDeckBorder, deckWall, player.stones[deckPiece]);
+        pickDeckSkystone(playerDeckBorder, deckWall, player.stones[deckPiece], pieceSpikeInfo);
         deckPiece++;
     }
 
