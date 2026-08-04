@@ -6,4 +6,4 @@ void printPieceCoordinates(int grid_x, int grid_y);
 
 void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo);
 
-void enterPiece(int x, int y);
+void erasePieces();

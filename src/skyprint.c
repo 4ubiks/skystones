@@ -68,21 +68,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
     // Player 2
     init_pair(3, COLOR_BLUE, COLOR_BLACK);
 
-    /*
-    I need nine piece windows. This will be an irritating overhaul, but it'll simplify everything a lot once it's completed. 
-
-    Action is called nine times. Each function call increments the x, y coordinates to create each WINDOW* object in a different location. 
-    
-    pieceArray[9]
-    -> spikeArray[4]
-
-    for (all pieceArray elemnts){
-        for (all spikeArray elements){
-            print(spikes)
-        }
-    }
-    */
-
     WINDOW* pieceBoardArray[9];
     char* piecesPlayed[20] = {"Default\0"};
 
@@ -155,13 +140,21 @@ void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo) {
     wrefresh(playerDeckBorder);
 }
 
-void enterPiece(int x, int y){
+void erasePieces(){
+    int tmp_x=8;
+    int tmp_y=52;
 
-    // signify that piece X, Y has been taken. 
-    WINDOW *enterPiece = newwin(15, 25, x, y);
-    box(enterPiece, 0, 0);
-    wborder(enterPiece, '<', '>', 206, 206, '+', '+', '+', '+');
+    WINDOW* pieceArray[9];
 
-    refresh();
-    wrefresh(enterPiece);
+    int piece_count=0;
+
+    for (int piece_row=0; piece_row<3; piece_row++){
+        for (int piece_col=0; piece_col<3; piece_col++){
+            pieceArray[piece_count] = newwin(15, 25, tmp_y, tmp_x);
+
+            werase(pieceArray[piece_count]);
+            wrefresh(pieceArray[piece_count]);
+            piece_count++;
+        }
+    }
 }
