@@ -3,8 +3,8 @@ An homage to my favorite childhood game, Skylanders: Giants. In this game, there
 
 Using `ncurses` to render the graphics
 
-Use the arrow keys to select where you want to play your next stone. 
-Use 'A/D' keys to select your next stone to play. 
+Use 'A/D' keys to select your next stone to play, and press 'Space' to select the piece to play. 
+Use the arrow keys to select where you want to play your next stone, and press 'Enter' when you're ready to place the stone. 
 
 ## Structure
 This is the include breakdown, just to help avoid include loops
