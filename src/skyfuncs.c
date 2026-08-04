@@ -215,3 +215,12 @@ void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* pie
         spikes[3] = 0;
     }
 }
+
+void checkPieces(int pieceNum, char* spikePieceArrays[]) {
+    // checks adjacent pieces and their spike counts...
+    // if pieceNum == 1 then 
+        // check spikePieceArrays[1].spike[3] and spikePieceArrays[3].[0]
+        // that's spike D on piece 2 and spike A on piece 4 respectively. 
+
+    // legit i think the easiest way to do this is brute force because it's overall so minimal. 
+}

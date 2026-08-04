@@ -18,3 +18,5 @@ char* setDeckPieceName(int selectedPiece);
 void assignPieceNames(struct PieceInfo *boardPieces, int thePieceNumberPlayed, char* pieceName);
 
 void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* piecePlayed, int spikes[]);
+
+void checkPieces(int pieceNum, char* spikePieceArrays[]);

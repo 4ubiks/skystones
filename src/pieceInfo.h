@@ -16,6 +16,13 @@ struct PieceInfo {
     // B: RIGHT
     // C: DOWN
     // D: LEFT
+    // |-----------|
+    // |           |
+    // |     A     |
+    // |   D   B   |
+    // |     C     |
+    // |           |
+    // |___________|
     int GRENADE_GENERAL_A;
     int GRENADE_GENERAL_B;
     int GRENADE_GENERAL_C;
