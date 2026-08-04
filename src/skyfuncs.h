@@ -11,7 +11,7 @@ void selectPlayerColor(WINDOW* newPieceWindow1, struct Board board, int piece_co
 
 int playerScore(struct Board board);
 
-void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece);
+void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece, struct PieceInfo pieceSpikeInfo);
 
 char* setDeckPieceName(int selectedPiece);
 
