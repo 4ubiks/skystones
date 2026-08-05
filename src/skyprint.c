@@ -125,19 +125,24 @@ void printPieceCoordinates(int grid_x, int grid_y){
     mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
 }
 
-void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo) {
+void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, WINDOW* deckSelection, int deckPieceNumber) {
 
-    WINDOW* playerDeckBorder = newwin(56, 20, 8, 10);
-    wborder(playerDeckBorder, '|', '|', '-', '-', '-', '-', '-', '-');
-    int deckPiece=0;
-    for (int deckWall=0; deckWall < 55; deckWall+=11){
-        mvwprintw(playerDeckBorder, deckWall, 0, "--------------------");
-        pickDeckSkystone(playerDeckBorder, deckWall, player.stones[deckPiece], pieceSpikeInfo);
-        deckPiece++;
+    WINDOW* playerDeckBorder[5];
+
+    int y_increment=11;
+    for (int j=0; j<5; j++){
+        y_increment = 11;
+        y_increment *= j;
+        playerDeckBorder[j] = newwin(10, 20, (8 + y_increment), 10);
+
+        box(playerDeckBorder[j], 0, 0);
+        pickDeckSkystone(playerDeckBorder[j], 1, player.stones[j], pieceSpikeInfo);
+
+        refresh();
+        wrefresh(playerDeckBorder[j]);
+
     }
 
-    refresh();
-    wrefresh(playerDeckBorder);
 }
 
 void erasePieces(){
