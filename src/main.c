@@ -67,7 +67,7 @@ int main(){
     wattron(gridSelection, A_REVERSE);
 
     WINDOW *deckSelection = newwin(10, 18, 9, 11);
-    box(deckSelection, 0, 0);
+    //box(deckSelection, 0, 0);
     wrefresh(deckSelection);
 
     wattron(deckSelection, A_REVERSE);
@@ -78,7 +78,9 @@ int main(){
     wrefresh(gridSelection);
 
     // print the first player's deck
-    printPlayerDeck(p1, deckPieces);
+    int deckSelected=0;
+    int deck_y = 9;
+    printPlayerDeck(p1, deckPieces, deckSelection, deckSelected);
 
     y=8;
     x=52;
@@ -86,7 +88,6 @@ int main(){
     grid_x = 0;
     grid_y = 0;
 
-    int deck_y = 9;
     int piece_number = 0;
     int deck_piece_played=0;
     char piecePlayed = OPEN;
@@ -100,6 +101,7 @@ int main(){
         int pressedKey = getch();
         while (pressedKey != ' '){
             pressedKey = getch();
+            deckSelected=1;
             switch(pressedKey){
                 case 'w':
                     deck_y-=11;
@@ -123,17 +125,15 @@ int main(){
             werase(deckSelection);
             wrefresh(deckSelection);
 
-            // highlights user selection of DECK
-            deckSelection = newwin(10, 18, deck_y, 11);
-            box(deckSelection, 0, 0);
-            wmove(deckSelection, deck_y, 11);
 
             if (turn > 0){
-                printPlayerDeck(p1, deckPieces);
+                printPlayerDeck(p1, deckPieces, deckSelection, deckSelected);
             }
             else{
-                printPlayerDeck(p2, deckPieces);
+                printPlayerDeck(p2, deckPieces, deckSelection, deckSelected);
             }
+
+            deckSelection = newwin(10, 18, deck_y, 11);
 
             wrefresh(deckSelection);
 
@@ -193,13 +193,6 @@ int main(){
 
         boardPieces.piecesPlayed++;
 
-        if (gameIsOver(&boardPieces) == '1'){
-            timeout(-1);
-            erase();
-            erasePieces();
-            mvwprintw(stdscr, 28, 102, "game over");
-        }
-
         mvwprintw(stdscr, 5, 5, "Player 1 points: %d", p1.points);
 
         if (turn < 0){
@@ -213,7 +206,13 @@ int main(){
         checkPiece(piece_number, pieceSpikes, &boardPieces);
 
         turn = toggleTurn(turn);
-        
+
+        if (gameIsOver(&boardPieces) == '1'){
+            timeout(-1);
+            erase();
+            erasePieces();
+            mvwprintw(stdscr, 28, 102, "game over");
+        }
     }
 
     refresh();
