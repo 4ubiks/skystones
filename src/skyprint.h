@@ -4,6 +4,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
 
 void printPieceCoordinates(int grid_x, int grid_y);
 
-void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, WINDOW* deckSelection, int deckPieceNumber);
+void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, int deckPieceNumber);
 
 void erasePieces();
