@@ -79,67 +79,67 @@ int playerScore(struct Board board){
 void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece, struct PieceInfo pieceSpikeInfo){
     switch (deckPiece){
         case GRENADE_GENERAL:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "GRENADE");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 6, "GRENADE");
+            mvwprintw(currentPieceWindow, deckWall+3, 7, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 8, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 7, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 6, "%d\0", pieceSpikeInfo.GRENADE_GENERAL_D);
             break;
 
         case ARKEYAN_BOMBER:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "ARKEYAN");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 6, "ARKEYAN");
+            mvwprintw(currentPieceWindow, deckWall+3, 8, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 9, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 8, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 7, "%d\0", pieceSpikeInfo.ARKEYAN_BOMBER_D);
             break;
 
         case ROOT_RUNNER:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "ROOT");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.ROOT_RUNNER_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.ROOT_RUNNER_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.ROOT_RUNNER_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.ROOT_RUNNER_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 8, "ROOT");
+            mvwprintw(currentPieceWindow, deckWall+3, 8, "%d\0", pieceSpikeInfo.ROOT_RUNNER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 9, "%d\0", pieceSpikeInfo.ROOT_RUNNER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 8,  "%d\0", pieceSpikeInfo.ROOT_RUNNER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 7, "%d\0", pieceSpikeInfo.ROOT_RUNNER_D);
             break;
 
         case CRYSTAL_GOLEM:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "CRYSTAL");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 6, "CRYSTAL");
+            mvwprintw(currentPieceWindow, deckWall+3, 8, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 9, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 8, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 7, "%d\0", pieceSpikeInfo.CRYSTAL_GOLEM_D);
             break;
 
         case BLAZE_BREWER:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "BLAZE");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.BLAZE_BREWER_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.BLAZE_BREWER_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.BLAZE_BREWER_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.BLAZE_BREWER_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 7, "BLAZE");
+            mvwprintw(currentPieceWindow, deckWall+3, 8, "%d\0", pieceSpikeInfo.BLAZE_BREWER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 9, "%d\0", pieceSpikeInfo.BLAZE_BREWER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 8, "%d\0", pieceSpikeInfo.BLAZE_BREWER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 7, "%d\0", pieceSpikeInfo.BLAZE_BREWER_D);
             break;
 
         case CONQUERTRON:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "CONQUERTRON");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.CONQUERTRON_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.CONQUERTRON_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.CONQUERTRON_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.CONQUERTRON_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 3, "CONQUERTRON");
+            mvwprintw(currentPieceWindow, deckWall+3, 8, "%d\0", pieceSpikeInfo.CONQUERTRON_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 9, "%d\0", pieceSpikeInfo.CONQUERTRON_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 8, "%d\0", pieceSpikeInfo.CONQUERTRON_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 7, "%d\0", pieceSpikeInfo.CONQUERTRON_D);
             break;
 
         case DRAGONET:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "DRAGONET");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.DRAGONET_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.DRAGONET_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.DRAGONET_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.DRAGONET_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 5, "DRAGONET");
+            mvwprintw(currentPieceWindow, deckWall+3, 8, "%d\0", pieceSpikeInfo.DRAGONET_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 9, "%d\0", pieceSpikeInfo.DRAGONET_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 8, "%d\0", pieceSpikeInfo.DRAGONET_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 7, "%d\0", pieceSpikeInfo.DRAGONET_D);
             break;
 
         case D_RIVETER:
-            mvwprintw(currentPieceWindow, deckWall+2, 2, "D-RIVET");
-            mvwprintw(currentPieceWindow, deckWall+3, 3, "%d\0", pieceSpikeInfo.D_RIVETER_A);
-            mvwprintw(currentPieceWindow, deckWall+4, 4, "%d\0", pieceSpikeInfo.D_RIVETER_B);
-            mvwprintw(currentPieceWindow, deckWall+5, 3, "%d\0", pieceSpikeInfo.D_RIVETER_C);
-            mvwprintw(currentPieceWindow, deckWall+4, 2, "%d\0", pieceSpikeInfo.D_RIVETER_D);
+            mvwprintw(currentPieceWindow, deckWall+2, 6, "D-RIVET");
+            mvwprintw(currentPieceWindow, deckWall+3, 8, "%d\0", pieceSpikeInfo.D_RIVETER_A);
+            mvwprintw(currentPieceWindow, deckWall+4, 9, "%d\0", pieceSpikeInfo.D_RIVETER_B);
+            mvwprintw(currentPieceWindow, deckWall+5, 8, "%d\0", pieceSpikeInfo.D_RIVETER_C);
+            mvwprintw(currentPieceWindow, deckWall+4, 7, "%d\0", pieceSpikeInfo.D_RIVETER_D);
             break;
         
         case PIECE_PLAYED:
@@ -237,12 +237,6 @@ void selectPieceNumbers(WINDOW* pieceWindow, struct PieceInfo *pieces, char* pie
         spikes[1] = pieces->D_RIVETER_B;
         spikes[2] = pieces->D_RIVETER_C;
         spikes[3] = pieces->D_RIVETER_D;
-    }
-    else {
-        spikes[0] = 0;
-        spikes[1] = 0;
-        spikes[2] = 0; 
-        spikes[3] = 0;
     }
 }
 
