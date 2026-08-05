@@ -66,21 +66,21 @@ int main(){
 
     wattron(gridSelection, A_REVERSE);
 
-    WINDOW *deckSelection = newwin(10, 18, 9, 11);
+    WINDOW *deckSelection;// = newwin(10, 18, 9, 11);
     //box(deckSelection, 0, 0);
-    wrefresh(deckSelection);
+    //wrefresh(deckSelection);
 
-    wattron(deckSelection, A_REVERSE);
+    //wattron(deckSelection, A_REVERSE);
 
     refresh();
 
-    wrefresh(deckSelection);
+    //wrefresh(deckSelection);
     wrefresh(gridSelection);
 
     // print the first player's deck
     int deckSelected=0;
     int deck_y = 9;
-    printPlayerDeck(p1, deckPieces, deckSelection, deckSelected);
+    printPlayerDeck(p1, deckPieces, deckSelected);
 
     y=8;
     x=52;
@@ -121,21 +121,16 @@ int main(){
                     break;
             }
 
-            // refresh to erase old selection
-            werase(deckSelection);
-            wrefresh(deckSelection);
-
-
             if (turn > 0){
-                printPlayerDeck(p1, deckPieces, deckSelection, deckSelected);
+                printPlayerDeck(p1, deckPieces, deck_piece_played);
             }
             else{
-                printPlayerDeck(p2, deckPieces, deckSelection, deckSelected);
+                printPlayerDeck(p2, deckPieces, deck_piece_played);
             }
 
-            deckSelection = newwin(10, 18, deck_y, 11);
+            //deckSelection = newwin(10, 18, deck_y, 11);
 
-            wrefresh(deckSelection);
+            //wrefresh(deckSelection);
 
             
         }
