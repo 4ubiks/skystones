@@ -141,7 +141,6 @@ void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, int 
 
         if (j == deckPieceNumber){
             wbkgd(playerDeckBorder[j], COLOR_PAIR(5));
-            mvwprintw(stdscr, DEBUG_Y, DEBUG_X, "turn %d a diff color", deckPieceNumber);
         }
         
         pickDeckSkystone(playerDeckBorder[j], 1, player.stones[j], pieceSpikeInfo);
