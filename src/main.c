@@ -1,6 +1,7 @@
 // C libraries
 #include "stdio.h"
 #include "ncurses.h"
+#include "locale.h"
 
 // Custom files
 #include "constants.h"
@@ -14,6 +15,9 @@
 #include "skyfuncs.h"
 
 int main(){
+
+    setlocale(LC_ALL, "");
+
     initscr();
     noecho();
     cbreak();
