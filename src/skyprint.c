@@ -125,11 +125,12 @@ void printPieceCoordinates(int grid_x, int grid_y){
     mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
 }
 
-void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, int deckPieceNumber) {
+void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, int deckPieceNumber, int turn) {
 
     WINDOW* playerDeckBorder[5];
 
-    init_pair(5, COLOR_GREEN, COLOR_BLACK);
+    init_pair(5, COLOR_RED, COLOR_BLACK);
+    init_pair(6, COLOR_BLUE, COLOR_BLACK);
 
     int y_increment=11;
     for (int j=0; j<5; j++){
@@ -140,7 +141,12 @@ void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, int 
         box(playerDeckBorder[j], 0, 0);
 
         if (j == deckPieceNumber){
-            wbkgd(playerDeckBorder[j], COLOR_PAIR(5));
+            if (turn > 0){
+                wbkgd(playerDeckBorder[j], COLOR_PAIR(5));
+            }
+            else{
+                wbkgd(playerDeckBorder[j], COLOR_PAIR(6));
+            }
         }
         
         pickDeckSkystone(playerDeckBorder[j], 1, player.stones[j], pieceSpikeInfo);
