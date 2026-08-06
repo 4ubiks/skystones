@@ -69,6 +69,7 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
     init_pair(3, COLOR_BLUE, COLOR_BLACK);
 
     WINDOW* pieceBoardArray[9];
+
     char* piecesPlayed[20] = {"Default\0"};
 
     int piece_count = 0;
@@ -180,38 +181,68 @@ void printGridPieceOnSelection(int pieceSelection, WINDOW* gridSelectionWindow, 
     switch (pieceSelection){
         case GRENADE_GENERAL:
             mvwprintw(gridSelectionWindow, 2, 2, "Grenade Gen");
-            mvwprintw(gridSelectionWindow, 3, 4, pieceSpikes.GRENADE_GENERAL_A);
-            mvwprintw(gridSelectionWindow, 4, 5, pieceSpikes.GRENADE_GENERAL_B);
-            mvwprintw(gridSelectionWindow, 5, 4, pieceSpikes.GRENADE_GENERAL_C);
-            mvwprintw(gridSelectionWindow, 4, 3, pieceSpikes.GRENADE_GENERAL_D);
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.GRENADE_GENERAL_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.GRENADE_GENERAL_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.GRENADE_GENERAL_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.GRENADE_GENERAL_D);
+
+            curs_set(0);
             break;
         
         case ARKEYAN_BOMBER:
             mvwprintw(gridSelectionWindow, 2, 2, "Arkeyan Bomb");
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.ARKEYAN_BOMBER_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.ARKEYAN_BOMBER_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.ARKEYAN_BOMBER_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.ARKEYAN_BOMBER_D);
             break;
 
         case ROOT_RUNNER:
             mvwprintw(gridSelectionWindow, 2, 2, "Root Runner");
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.ROOT_RUNNER_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.ROOT_RUNNER_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.ROOT_RUNNER_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.ROOT_RUNNER_D);
             break;
 
         case CRYSTAL_GOLEM:
             mvwprintw(gridSelectionWindow, 2, 2, "Crystal Golem");
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.CRYSTAL_GOLEM_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.CRYSTAL_GOLEM_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.CRYSTAL_GOLEM_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.CRYSTAL_GOLEM_D);
             break;
 
         case BLAZE_BREWER:
             mvwprintw(gridSelectionWindow, 2, 2, "Blaze Brewer");
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.BLAZE_BREWER_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.BLAZE_BREWER_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.BLAZE_BREWER_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.BLAZE_BREWER_D);
             break;
 
         case CONQUERTRON:
             mvwprintw(gridSelectionWindow, 2, 2, "Conquertron");
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.CONQUERTRON_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.CONQUERTRON_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.CONQUERTRON_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.CONQUERTRON_D);
             break;
 
         case DRAGONET:
             mvwprintw(gridSelectionWindow, 2, 2, "Dragonet");
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.DRAGONET_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.DRAGONET_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.DRAGONET_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.DRAGONET_D);
             break;
 
         case D_RIVETER:
             mvwprintw(gridSelectionWindow, 2, 2, "D-Riveter");
+            mvwprintw(gridSelectionWindow, 3, 4, "%d", pieceSpikes.D_RIVETER_A);
+            mvwprintw(gridSelectionWindow, 4, 5, "%d", pieceSpikes.D_RIVETER_B);
+            mvwprintw(gridSelectionWindow, 5, 4, "%d", pieceSpikes.D_RIVETER_C);
+            mvwprintw(gridSelectionWindow, 4, 3, "%d", pieceSpikes.D_RIVETER_D);
             break;
 
         case PIECE_PLAYED:

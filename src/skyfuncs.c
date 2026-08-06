@@ -70,6 +70,9 @@ int playerScore(struct Board board){
 }
 
 void pickDeckSkystone(WINDOW* currentPieceWindow, int deckWall, int deckPiece, struct PieceInfo pieceSpikeInfo){
+
+    curs_set(0);
+
     switch (deckPiece){
         case GRENADE_GENERAL:
             mvwprintw(currentPieceWindow, deckWall+2, 6, "GRENADE");
