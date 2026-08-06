@@ -43,13 +43,6 @@ char gameIsOver(struct Board *board){
 int toggleTurn(int turn){
     turn *= -1;
 
-    if (turn > 0){
-        mvwprintw(stdscr, 50, 15, "Player 1");
-    }
-    else{
-        mvwprintw(stdscr, 50, 15, "Player 2");
-    }
-
     return turn;
 }
 
@@ -445,8 +438,6 @@ bool checkPieceExists(int piecePlayed){
 }
 
 bool checkOppositePlayer(int playedPlayer, int targetPlayer){
-    mvwprintw(stdscr, 9, 10, "p1: %d", playedPlayer);
-    mvwprintw(stdscr, 11, 10, "p2: %d", targetPlayer);
     if (playedPlayer != targetPlayer) {
         return true;
     }
