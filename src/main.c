@@ -83,7 +83,7 @@ int main(){
 
     // when `turn` is positive, player 1's turn. otherwise, p2's turn.
     int turn = 1;
-    
+
     printPlayerDeck(p1, deckPieces, deckSelected, turn);
 
     y=8;
@@ -94,6 +94,7 @@ int main(){
 
     int piece_number = 0;
     int deck_piece_played=0;
+    int piece_identifier=0;
     char piecePlayed = OPEN;
     char* piecePlayedString = "DEFAULT\0";
 
@@ -136,11 +137,14 @@ int main(){
             
         }
 
+
         if (turn > 0){
+            piece_identifier = p1.stones[deck_piece_played];
             piecePlayedString = setDeckPieceName(p1.stones[deck_piece_played]);
             p1.stones[deck_piece_played] = PIECE_PLAYED;
         }
         else {
+            piece_identifier = p2.stones[deck_piece_played];
             piecePlayedString = setDeckPieceName(p2.stones[deck_piece_played]);
             p2.stones[deck_piece_played] = PIECE_PLAYED;
         }
@@ -180,6 +184,9 @@ int main(){
             // highlights user selection of GRID
             gridSelection = newwin(13, 21, y+1, x+2);
             box(gridSelection, 0, 0);
+
+            printGridPieceOnSelection(piece_identifier, gridSelection, deckPieces);
+
             wmove(gridSelection, y, x);
             
             // second refresh to draw new selection
