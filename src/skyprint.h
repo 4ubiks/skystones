@@ -5,3 +5,5 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
 void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, int deckPieceNumber, int turn);
 
 void erasePieces();
+
+void printGridPieceOnSelection(int pieceSelection, WINDOW* gridSelectionWindow, struct PieceInfo pieceSpikes);
