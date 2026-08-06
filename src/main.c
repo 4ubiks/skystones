@@ -80,7 +80,11 @@ int main(){
     // print the first player's deck
     int deckSelected=0;
     int deck_y = 9;
-    printPlayerDeck(p1, deckPieces, deckSelected);
+
+    // when `turn` is positive, player 1's turn. otherwise, p2's turn.
+    int turn = 1;
+    
+    printPlayerDeck(p1, deckPieces, deckSelected, turn);
 
     y=8;
     x=52;
@@ -92,9 +96,6 @@ int main(){
     int deck_piece_played=0;
     char piecePlayed = OPEN;
     char* piecePlayedString = "DEFAULT\0";
-
-    // when `turn` is positive, player 1's turn. otherwise, p2's turn.
-    int turn = 1;
 
     while (true){
 
@@ -122,10 +123,10 @@ int main(){
             }
 
             if (turn > 0){
-                printPlayerDeck(p1, deckPieces, deck_piece_played);
+                printPlayerDeck(p1, deckPieces, deck_piece_played, turn);
             }
             else{
-                printPlayerDeck(p2, deckPieces, deck_piece_played);
+                printPlayerDeck(p2, deckPieces, deck_piece_played, turn);
             }
 
             //deckSelection = newwin(10, 18, deck_y, 11);
