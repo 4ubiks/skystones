@@ -120,11 +120,6 @@ void printBoardPieces(struct Board board, char* piecePlayed, struct PieceInfo *b
 
 }
 
-void printPieceCoordinates(int grid_x, int grid_y){
-    mvwprintw(stdscr, 10, 10, "(%d, ", grid_x);
-    mvwprintw(stdscr, 10, 14, "%d)", grid_y);  
-}
-
 void printPlayerDeck(struct Player player, struct PieceInfo pieceSpikeInfo, int deckPieceNumber, int turn) {
 
     WINDOW* playerDeckBorder[5];
