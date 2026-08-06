@@ -171,3 +171,51 @@ void erasePieces(){
         }
     }
 }
+
+void printGridPieceOnSelection(int pieceSelection, WINDOW* gridSelectionWindow, struct PieceInfo pieceSpikes){
+    // giant switch to print current data onto existing selection
+
+    mvwprintw(gridSelectionWindow, 2, 2, "grid: %d", pieceSelection);
+
+    switch (pieceSelection){
+        case GRENADE_GENERAL:
+            mvwprintw(gridSelectionWindow, 2, 2, "Grenade Gen");
+            mvwprintw(gridSelectionWindow, 3, 4, pieceSpikes.GRENADE_GENERAL_A);
+            mvwprintw(gridSelectionWindow, 4, 5, pieceSpikes.GRENADE_GENERAL_B);
+            mvwprintw(gridSelectionWindow, 5, 4, pieceSpikes.GRENADE_GENERAL_C);
+            mvwprintw(gridSelectionWindow, 4, 3, pieceSpikes.GRENADE_GENERAL_D);
+            break;
+        
+        case ARKEYAN_BOMBER:
+            mvwprintw(gridSelectionWindow, 2, 2, "Arkeyan Bomb");
+            break;
+
+        case ROOT_RUNNER:
+            mvwprintw(gridSelectionWindow, 2, 2, "Root Runner");
+            break;
+
+        case CRYSTAL_GOLEM:
+            mvwprintw(gridSelectionWindow, 2, 2, "Crystal Golem");
+            break;
+
+        case BLAZE_BREWER:
+            mvwprintw(gridSelectionWindow, 2, 2, "Blaze Brewer");
+            break;
+
+        case CONQUERTRON:
+            mvwprintw(gridSelectionWindow, 2, 2, "Conquertron");
+            break;
+
+        case DRAGONET:
+            mvwprintw(gridSelectionWindow, 2, 2, "Dragonet");
+            break;
+
+        case D_RIVETER:
+            mvwprintw(gridSelectionWindow, 2, 2, "D-Riveter");
+            break;
+
+        case PIECE_PLAYED:
+            break;
+    }
+
+}
