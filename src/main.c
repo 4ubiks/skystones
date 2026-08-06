@@ -206,7 +206,9 @@ int main(){
         setPiece(&boardPieces, piece_number, turn);
         
         printBoardPieces(boardPieces, piecePlayedString, &deckPieces, piece_number, pieceSpikes);
+        
         checkPiece(piece_number, pieceSpikes, &boardPieces);
+
 
         turn = toggleTurn(turn);
 
